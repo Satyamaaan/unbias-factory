@@ -3,7 +3,7 @@
 ## 1. Project Overview  
 Unbias Lending is a digital home-loan marketplace for Indian borrowers.  
 The platform lets users discover, compare, and apply for home-loan products from banks and NBFCs in minutes—100 % online, transparent, and “unbiased.”  
-This repository contains the **MVP** implementation built with a **Supabase + Next.js** stack and developed almost entirely through **Factory.ai vibe-coding**.
+This repository contains the **MVP** implementation built with a **Supabase + Next.js** stack.
 
 ---
 
