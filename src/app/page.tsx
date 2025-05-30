@@ -5,20 +5,27 @@ import { supabase } from "@/lib/supabase"
 import { useState } from "react"
 
 export default function Home() {
-  const [connectionStatus, setConnectionStatus] = useState<string>("")
+  const [data, setData] = useState<any[]>([])
+  const [loading, setLoading] = useState(false)
 
-  const testConnection = async () => {
+  const fetchProducts = async () => {
+    setLoading(true)
     try {
-      const { data, error } = await supabase.from('test').select('*').limit(1)
-      if (error && error.message.includes('does not exist')) {
-        setConnectionStatus("✅ Connected to Supabase (no tables yet)")
-      } else if (error) {
-        setConnectionStatus(`❌ Error: ${error.message}`)
-      } else {
-        setConnectionStatus("✅ Connected to Supabase")
-      }
-    } catch (err) {
-      setConnectionStatus(`❌ Connection failed`)
+      const { data: products, error } = await supabase
+        .from('products')
+        .select(`
+          name,
+          interest_rate_min,
+          lenders (name)
+        `)
+        .limit(10)
+        
+      if (error) throw error
+      setData(products || [])
+    } catch (error) {
+      console.error('Error:', error)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -26,18 +33,26 @@ export default function Home() {
     <main className="min-h-screen p-8 max-w-4xl mx-auto">
       <div className="text-center space-y-6">
         <h1 className="text-4xl font-bold">Unbias Lending</h1>
-        <p className="text-muted-foreground">Digital home loan marketplace</p>
         
         <Card className="max-w-md mx-auto">
           <CardHeader>
-            <CardTitle>Supabase Connection Test</CardTitle>
+            <CardTitle>Database Test</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button onClick={testConnection} className="w-full">
-              Test Supabase Connection
+            <Button onClick={fetchProducts} disabled={loading} className="w-full">
+              {loading ? "Loading..." : "Fetch Products"}
             </Button>
-            {connectionStatus && (
-              <p className="text-sm">{connectionStatus}</p>
+            
+            {data.length > 0 && (
+              <div className="text-left space-y-2">
+                <p className="font-semibold">Found {data.length} products:</p>
+                {data.slice(0, 3).map((product, i) => (
+                  <div key={i} className="text-sm p-2 bg-muted rounded">
+                    <strong>{product.lenders?.name}</strong><br/>
+                    {product.name} - {product.interest_rate_min}%
+                  </div>
+                ))}
+              </div>
             )}
           </CardContent>
         </Card>
