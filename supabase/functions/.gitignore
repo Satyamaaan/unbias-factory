@@ -1,2 +1,6 @@
-# Supabase
+echo "# Supabase Functions
 .env
+.env.local
+node_modules/
+dist/
+*.log" > supabase/functions/.gitignore
