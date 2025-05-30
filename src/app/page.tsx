@@ -1,153 +1,150 @@
 'use client'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { supabase } from "@/lib/supabase"
 import { useState } from "react"
 
 export default function Home() {
-  const [products, setProducts] = useState<any[]>([])
-  const [functionResult, setFunctionResult] = useState<any>(null)
+  const [offers, setOffers] = useState<any>(null)
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
 
-  const testFunction = async () => {
+  const testMatchOffers = async (borrowerId: string, label: string) => {
     setLoading(true)
-    setError(null)
     try {
-      const { data, error } = await supabase.functions.invoke('hello', {
-        body: { test: 'data' }
+      const { data, error } = await supabase.functions.invoke('match_offers', {
+        body: { borrower_id: borrowerId }
       })
 
       if (error) throw error
-      setFunctionResult(data)
-    } catch (error: unknown) {
-      console.error('Function error:', error)
-      const errorMessage = error instanceof Error ? error.message : String(error)
-      setFunctionResult({ error: errorMessage })
+      setOffers({ ...data, label })
+    } catch (error) {
+      console.error('Error:', error)
+      setOffers({ error: error.message, label })
     } finally {
       setLoading(false)
     }
   }
 
-  const fetchProducts = async () => {
-    setLoading(true)
-    setError(null)
-    setProducts([])
-    
-    console.log('🔍 Starting to fetch products...')
-    console.log('🔗 Supabase URL:', process.env.NEXT_PUBLIC_SUPABASE_URL ? 'Set' : 'Missing')
-    console.log('🔑 Supabase Anon Key:', process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? 'Set' : 'Missing')
-    
-    try {
-      // First, try a simple query without joins
-      console.log('🔄 Trying simple query first...')
-      let { data: productData, error } = await supabase
-        .from('products')
-        .select('name, interest_rate_min')
-        .limit(3)
-        
-      console.log('📊 Simple query result:', { data: productData, error })
-      
-      if (error) {
-        console.error('❌ Supabase error:', error)
-        throw new Error(`Database error: ${error.message} (Code: ${error.code})`)
-      }
-      
-      // If simple query works, try with lenders join
-      if (productData && productData.length > 0) {
-        console.log('✅ Simple query worked, trying with lenders join...')
-        const { data: productDataWithLenders, error: joinError } = await supabase
-          .from('products')
-          .select(`
-            name,
-            interest_rate_min,
-            lenders (name)
-          `)
-          .limit(3)
-          
-        if (!joinError && productDataWithLenders) {
-          console.log('✅ Join query also worked!')
-          productData = productDataWithLenders
-        } else {
-          console.log('⚠️ Join failed, using simple data:', joinError?.message)
-        }
-      }
-      
-      console.log('✅ Products fetched successfully:', productData)
-      setProducts(productData || [])
-      
-    } catch (error: unknown) {
-      console.error('💥 Fetch error:', error)
-      const errorMessage = error instanceof Error ? error.message : String(error)
-      setError(errorMessage)
-    } finally {
-      setLoading(false)
-    }
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0
+    }).format(amount)
+  }
+
+  const formatLoanAmount = (amount: number) => {
+    if (amount >= 10000000) return `₹${(amount / 10000000).toFixed(1)} Cr`
+    if (amount >= 100000) return `₹${(amount / 100000).toFixed(1)} L`
+    return formatCurrency(amount)
   }
 
   return (
-    <main className="min-h-screen p-8 max-w-4xl mx-auto">
+    <main className="min-h-screen p-8 max-w-6xl mx-auto">
       <div className="text-center space-y-6">
         <h1 className="text-4xl font-bold">Unbias Lending</h1>
+        <p className="text-muted-foreground">Comparison Engine Test</p>
         
-        <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-          {/* Database Test */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Database Test</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <Button onClick={fetchProducts} disabled={loading} className="w-full">
-                {loading ? "Loading..." : "Fetch Products"}
+        <Card className="max-w-4xl mx-auto">
+          <CardHeader>
+            <CardTitle>Match Offers Test</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex gap-2">
+              <Button 
+                onClick={() => testMatchOffers('11111111-1111-1111-1111-111111111111', 'Salaried Borrower')} 
+                disabled={loading} 
+                className="flex-1"
+              >
+                {loading ? "Loading..." : "Test Salaried Borrower"}
               </Button>
-              
-              {error && (
-                <div className="text-left">
-                  <p className="font-semibold text-red-600">❌ Error:</p>
-                  <pre className="text-xs p-2 bg-red-50 border border-red-200 rounded overflow-auto text-red-800">
-                    {error}
-                  </pre>
-                  <p className="text-xs text-gray-600 mt-2">Check the browser console for more details</p>
+              <Button 
+                onClick={() => testMatchOffers('22222222-2222-2222-2222-222222222222', 'Self-Employed')} 
+                disabled={loading} 
+                variant="outline"
+                className="flex-1"
+              >
+                {loading ? "Loading..." : "Test Self-Employed"}
+              </Button>
+            </div>
+            
+            {offers && (
+              <div className="text-left space-y-4">
+                <div className="flex items-center gap-2">
+                  <h3 className="font-semibold">Results for {offers.label}:</h3>
+                  <Badge variant={offers.count > 0 ? "default" : "secondary"}>
+                    {offers.count} offers found
+                  </Badge>
                 </div>
-              )}
-              
-              {products.length > 0 && (
-                <div className="text-left space-y-2">
-                  <p className="font-semibold">✅ Products ({products.length}):</p>
-                  {products.map((product, i) => (
-                    <div key={i} className="text-sm p-2 bg-muted rounded">
-                      {product.lenders?.name && <><strong>{product.lenders.name}</strong><br/></>}
-                      {product.name} {product.interest_rate_min && `- ${product.interest_rate_min}%`}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </CardContent>
-          </Card>
 
-          {/* Edge Function Test */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Edge Function Test</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <Button onClick={testFunction} disabled={loading} className="w-full">
-                {loading ? "Calling..." : "Test Hello Function"}
-              </Button>
-              
-              {functionResult && (
-                <div className="text-left">
-                  <p className="font-semibold">
-                    {functionResult.error ? "❌ Function Error:" : "✅ Function Response:"}
-                  </p>
-                  <pre className="text-xs p-2 bg-muted rounded overflow-auto">
-                    {JSON.stringify(functionResult, null, 2)}
+                {offers.error ? (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="font-semibold text-red-700">❌ Error:</p>
+                    <p className="text-sm text-red-600">{offers.error}</p>
+                  </div>
+                ) : offers.count === 0 ? (
+                  <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <p className="font-semibold text-yellow-700">⚠️ No eligible offers</p>
+                    <p className="text-sm text-yellow-600">
+                      This borrower doesn't meet the eligibility criteria for any available products.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {offers.offers?.map((offer: any, i: number) => (
+                      <Card key={i} className="border-l-4 border-l-green-500">
+                        <CardContent className="p-4">
+                          <div className="flex justify-between items-start mb-3">
+                            <div>
+                              <h4 className="font-bold text-lg text-green-800">
+                                {offer.lender_name}
+                              </h4>
+                              <p className="text-green-700 font-medium">
+                                {offer.product_name}
+                              </p>
+                            </div>
+                            <Badge className="bg-green-100 text-green-800">
+                              {offer.interest_rate}% p.a.
+                            </Badge>
+                          </div>
+                          
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                            <div>
+                              <p className="text-muted-foreground">Loan Amount</p>
+                              <p className="font-semibold">{formatLoanAmount(offer.loan_amount)}</p>
+                            </div>
+                            <div>
+                              <p className="text-muted-foreground">EMI (20 years)</p>
+                              <p className="font-semibold">{formatCurrency(offer.estimated_emi)}</p>
+                            </div>
+                            <div>
+                              <p className="text-muted-foreground">Processing Fee</p>
+                              <p className="font-semibold">{formatCurrency(offer.processing_fee)}</p>
+                            </div>
+                            <div>
+                              <p className="text-muted-foreground">Max LTV</p>
+                              <p className="font-semibold">{offer.max_ltv}%</p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                )}
+                
+                <details className="mt-4">
+                  <summary className="text-sm text-muted-foreground cursor-pointer hover:text-foreground">
+                    View Raw Response
+                  </summary>
+                  <pre className="text-xs p-3 bg-muted rounded mt-2 overflow-auto max-h-60">
+                    {JSON.stringify(offers, null, 2)}
                   </pre>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </div>
+                </details>
+              </div>
+            )}
+          </CardContent>
+        </Card>
       </div>
     </main>
   )
