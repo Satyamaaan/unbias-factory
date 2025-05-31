@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { supabase } from "@/lib/supabase"
 import { useState } from "react"
+import Link from "next/link"
 
 export default function Home() {
   const [offers, setOffers] = useState<any>(null)
@@ -44,11 +45,25 @@ export default function Home() {
     <main className="min-h-screen p-8 max-w-6xl mx-auto">
       <div className="text-center space-y-6">
         <h1 className="text-4xl font-bold">Unbias Lending</h1>
-        <p className="text-muted-foreground">Comparison Engine Test</p>
+        <p className="text-muted-foreground">Digital home loan marketplace</p>
+        
+        {/* Navigation */}
+        <div className="flex gap-4 justify-center">
+          <Link href="/onboarding">
+            <Button size="lg" className="px-8">
+              Apply for Loan
+            </Button>
+          </Link>
+          <Link href="/test-performance">
+            <Button variant="outline" size="lg">
+              Performance Test
+            </Button>
+          </Link>
+        </div>
         
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
-            <CardTitle>Match Offers Test</CardTitle>
+            <CardTitle>Comparison Engine Test</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2">
@@ -112,15 +127,15 @@ export default function Home() {
                           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                             <div>
                               <p className="text-muted-foreground">Loan Amount</p>
-                              <p className="font-semibold">{formatLoanAmount(offer.loan_amount)}</p>
+                              <p className="font-semibold">{formatLoanAmount(offer.loan_amount || 0)}</p>
                             </div>
                             <div>
                               <p className="text-muted-foreground">EMI (20 years)</p>
-                              <p className="font-semibold">{formatCurrency(offer.estimated_emi)}</p>
+                              <p className="font-semibold">{formatCurrency(offer.estimated_emi || 0)}</p>
                             </div>
                             <div>
                               <p className="text-muted-foreground">Processing Fee</p>
-                              <p className="font-semibold">{formatCurrency(offer.processing_fee)}</p>
+                              <p className="font-semibold">{formatCurrency(offer.processing_fee || 0)}</p>
                             </div>
                             <div>
                               <p className="text-muted-foreground">Max LTV</p>
