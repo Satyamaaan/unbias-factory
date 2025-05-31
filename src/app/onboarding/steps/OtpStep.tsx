@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button"
 import { OtpInput } from "@/components/OtpInput" // Assuming OtpInput is in @/components/
 import { supabase } from "@/lib/supabase"
 import { useBorrower } from "@/contexts/BorrowerContext"
-// import { useRouter } from 'next/navigation' // Not strictly needed if nextStep handles navigation
+import { useRouter } from 'next/navigation'
 
 export function OtpStep() {
   const { draft, updateDraft, nextStep, prevStep } = useBorrower()
+  const router = useRouter()
   const [otp, setOtp] = useState('')
   const [isVerifying, setIsVerifying] = useState(false)
   const [isResending, setIsResending] = useState(false)
@@ -72,10 +73,11 @@ export function OtpStep() {
           // Continue anyway in development
         }
         
-        setSuccess('Mobile number verified successfully! (Dev mode)')
-        setTimeout(() => {
-          nextStep() // This should go to step 7 (OffersStep)
-        }, 1500)
+        setSuccess('Mobile number verified successfully! Redirecting to offers... (Dev mode)')
+        // setTimeout(() => {
+        //   nextStep() // This should go to step 7 (OffersStep)
+        // }, 1500)
+        router.push('/offers')
         return
       }
       
@@ -116,11 +118,12 @@ export function OtpStep() {
           
           console.log('✅ Draft finalized with borrower ID:', rpcData) // rpcData is the borrower_id
           updateDraft({ borrower_id: rpcData })
-          setSuccess('Mobile number verified successfully!')
+          setSuccess('Mobile number verified successfully! Redirecting to offers...')
           
-          setTimeout(() => {
-            nextStep() // This should go to step 7 (OffersStep)
-          }, 1500)
+          // setTimeout(() => {
+          //  nextStep() // This should go to step 7 (OffersStep)
+          // }, 1500)
+          router.push('/offers')
 
         } catch (finalizeRpcError: any) {
           console.error('❌ Failed to finalize draft:', finalizeRpcError)
