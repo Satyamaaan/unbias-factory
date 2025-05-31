@@ -2,44 +2,70 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { supabase } from "@/lib/supabase"
+// import { supabase } from "@/lib/supabase"; // No longer directly needed
 import { useState } from "react"
 import Link from "next/link"
+import { formatCurrency, formatLoanAmount } from "@/lib/utils";
+
+interface Offer {
+  lender_name: string;
+  product_name: string;
+  interest_rate: number;
+  loan_amount: number;
+  estimated_emi: number;
+  processing_fee: number;
+  max_ltv: number;
+}
+
+interface OffersState {
+  label: string;
+  count: number;
+  offers?: Offer[];
+  error?: string;
+}
 
 export default function Home() {
-  const [offers, setOffers] = useState<any>(null)
+  const [offers, setOffers] = useState<OffersState | null>(null)
   const [loading, setLoading] = useState(false)
 
   const testMatchOffers = async (borrowerId: string, label: string) => {
-    setLoading(true)
+    setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('match_offers', {
-        body: { borrower_id: borrowerId }
-      })
+      const response = await fetch('/api/match-offers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ borrower_id: borrowerId }),
+      });
 
-      if (error) throw error
-      setOffers({ ...data, label })
-    } catch (error) {
-      console.error('Error:', error)
-      setOffers({ error: error.message, label })
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || `HTTP error! status: ${response.status}`);
+      }
+
+      if (result.data) {
+        setOffers({ ...result.data, label });
+      } else {
+        throw new Error('Malformed response from API');
+      }
+
+    } catch (e: any) {
+      console.error('Error in testMatchOffers:', e);
+      let errorMessage = 'An unknown error occurred.';
+      if (e && e.message) {
+        errorMessage = e.message;
+      } else if (typeof e === 'string') {
+        errorMessage = e;
+      }
+      // Ensure count is part of OffersState, even in error cases for consistency.
+      // If your OffersState doesn't require count on error, this can be adjusted.
+      setOffers({ error: errorMessage, label, count: 0, offers: [] });
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
-
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 0
-    }).format(amount)
-  }
-
-  const formatLoanAmount = (amount: number) => {
-    if (amount >= 10000000) return `₹${(amount / 10000000).toFixed(1)} Cr`
-    if (amount >= 100000) return `₹${(amount / 100000).toFixed(1)} L`
-    return formatCurrency(amount)
-  }
+  };
 
   return (
     <main className="min-h-screen p-8 max-w-6xl mx-auto">
@@ -107,7 +133,7 @@ export default function Home() {
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    {offers.offers?.map((offer: any, i: number) => (
+                    {offers.offers?.map((offer: Offer, i: number) => (
                       <Card key={i} className="border-l-4 border-l-green-500">
                         <CardContent className="p-4">
                           <div className="flex justify-between items-start mb-3">
