@@ -4,8 +4,11 @@ import { useRouter } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { AuthErrorBoundary } from "@/components/AuthErrorBoundary"
 import { supabase } from "@/lib/supabase"
 import { useBorrower } from "@/contexts/BorrowerContext"
+import { useAuth } from "@/hooks/useAuth"
+import { makeAuthenticatedRequest } from "@/lib/auth"
 
 interface Offer {
   product_id: string
@@ -19,87 +22,71 @@ interface Offer {
   estimated_emi: number
 }
 
-export default function OffersPage() {
+function OffersPageContent() {
   const router = useRouter()
   const { draft } = useBorrower()
+  const { session, loading: authLoading, error: authError, isAuthenticated, refreshSession, signOut } = useAuth(draft.borrower_id)
   const [offers, setOffers] = useState<Offer[]>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [hasMounted, setHasMounted] = useState(false)
-
-  // Ensure component has mounted on client side before rendering
-  useEffect(() => {
-    setHasMounted(true)
-  }, [])
+  const [retryCount, setRetryCount] = useState(0)
+  const maxRetries = 3
 
   useEffect(() => {
-    // Only run after component has mounted to avoid hydration mismatch
-    if (!hasMounted) return
+    // Only proceed if auth is loaded and we have required data
+    if (authLoading) return
 
-    // Check if user is verified and has completed onboarding
+    // Check if user completed onboarding
     if (!draft.verified || !draft.borrower_id) {
       router.push('/onboarding')
       return
     }
 
-    // Check if user is authenticated with Supabase
-    checkAuthAndFetchOffers()
-  }, [draft.verified, draft.borrower_id, router, hasMounted])
-
-  const checkAuthAndFetchOffers = async () => {
-    try {
-      // Check current auth session
-      const { data: { session }, error: sessionError } = await supabase.auth.getSession()
-      
-      if (sessionError || !session) {
-        console.error('No valid session found:', sessionError)
+    // Check authentication
+    if (!isAuthenticated) {
+      if (authError?.retryable && retryCount < maxRetries) {
+        console.log(`Auth error is retryable, attempt ${retryCount + 1}/${maxRetries}`)
+        setRetryCount(prev => prev + 1)
+        setTimeout(() => refreshSession(), 1000 * retryCount) // Exponential backoff
+      } else {
         router.push('/onboarding')
-        return
       }
-
-      // Verify the session user matches the borrower
-      if (session.user.id !== draft.borrower_id) {
-        console.error('Session user ID does not match borrower ID')
-        router.push('/onboarding')
-        return
-      }
-
-      await fetchOffers()
-    } catch (error) {
-      console.error('Auth check failed:', error)
-      router.push('/onboarding')
+      return
     }
-  }
+
+    // Reset retry count on successful auth
+    setRetryCount(0)
+    fetchOffers()
+  }, [authLoading, isAuthenticated, authError, draft.verified, draft.borrower_id, router, refreshSession, retryCount])
 
   const fetchOffers = async () => {
-    if (!draft.borrower_id) return
+    if (!draft.borrower_id || !session) return
 
     try {
       setLoading(true)
       setError('')
 
-      // Get current session for authorization
-      const { data: { session } } = await supabase.auth.getSession()
-      
-      if (!session) {
-        throw new Error('No authentication session found')
-      }
+      const data = await makeAuthenticatedRequest(
+        async (authSession) => {
+          const { data, error } = await supabase.functions.invoke('match_offers', {
+            body: { borrower_id: draft.borrower_id },
+            headers: {
+              Authorization: `Bearer ${authSession.access_token}`
+            }
+          })
 
-      const { data, error } = await supabase.functions.invoke('match_offers', {
-        body: { borrower_id: draft.borrower_id },
-        headers: {
-          Authorization: `Bearer ${session.access_token}`
-        }
-      })
+          if (error) {
+            throw error
+          }
 
-      if (error) {
-        console.error('API Error:', error)
-        throw error
-      }
+          return data
+        },
+        draft.borrower_id
+      )
 
       // Validate response structure
       if (!data || typeof data !== 'object') {
-        throw new Error('Invalid response format')
+        throw new Error('Invalid response format from server')
       }
 
       const validatedOffers = (data.offers || []).filter((offer: any) => {
@@ -119,19 +106,39 @@ export default function OffersPage() {
     } catch (error: any) {
       console.error('Error fetching offers:', error)
       
-      // Handle specific error types
+      // Handle specific error types with retry logic
       if (error.message?.includes('Unauthorized') || error.message?.includes('Invalid or expired token')) {
-        setError('Session expired. Please log in again.')
-        setTimeout(() => router.push('/onboarding'), 2000)
+        if (retryCount < maxRetries) {
+          console.log(`Token error, attempting refresh (${retryCount + 1}/${maxRetries})`)
+          setRetryCount(prev => prev + 1)
+          try {
+            await refreshSession()
+            // fetchOffers will be called again via useEffect when session updates
+          } catch (refreshError) {
+            console.error('Token refresh failed:', refreshError)
+            setError('Session expired. Please log in again.')
+            setTimeout(() => router.push('/onboarding'), 2000)
+          }
+        } else {
+          setError('Session expired. Please log in again.')
+          setTimeout(() => router.push('/onboarding'), 2000)
+        }
       } else if (error.message?.includes('Forbidden') || error.message?.includes('Unauthorized access')) {
         setError('Access denied. Please verify your account.')
         setTimeout(() => router.push('/onboarding'), 2000)
+      } else if (error.message?.includes('network') || error.message?.includes('fetch')) {
+        setError('Network error. Please check your connection and try again.')
       } else {
-        setError('Failed to load offers. Please try again.')
+        setError(error.message || 'Failed to load offers. Please try again.')
       }
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleRetry = async () => {
+    setRetryCount(0)
+    await fetchOffers()
   }
 
   const formatCurrency = (amount: number) => {
@@ -155,14 +162,39 @@ export default function OffersPage() {
     return offer.processing_fee_value || 0
   }
 
-  // Show loading state until component has mounted to prevent hydration mismatch
-  if (!hasMounted) {
+  // Show loading state during auth check
+  if (authLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600">Verifying your session...</p>
         </div>
+      </div>
+    )
+  }
+
+  // Show auth error with retry options
+  if (authError && !authError.retryable) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <Card className="max-w-md">
+          <CardContent className="p-6 text-center">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">🔒</span>
+            </div>
+            <h3 className="text-lg font-semibold mb-2">Authentication Required</h3>
+            <p className="text-red-600 mb-4">{authError.message}</p>
+            <div className="space-y-2">
+              <Button onClick={() => router.push('/onboarding')} className="w-full">
+                Sign In Again
+              </Button>
+              <Button onClick={signOut} variant="outline" className="w-full">
+                Clear Session
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     )
   }
@@ -173,7 +205,9 @@ export default function OffersPage() {
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Finding the best loan offers for you...</p>
-          <p className="text-sm text-gray-500 mt-2">Verifying your account and matching offers</p>
+          <p className="text-sm text-gray-500 mt-2">
+            {retryCount > 0 && `Retry attempt ${retryCount}/${maxRetries}`}
+          </p>
         </div>
       </div>
     )
@@ -190,12 +224,15 @@ export default function OffersPage() {
             <h3 className="text-lg font-semibold mb-2">Unable to Load Offers</h3>
             <p className="text-red-600 mb-4">{error}</p>
             <div className="space-y-2">
-              <Button onClick={fetchOffers} className="w-full">
+              <Button onClick={handleRetry} className="w-full">
                 Try Again
+              </Button>
+              <Button onClick={refreshSession} variant="outline" className="w-full">
+                Refresh Session
               </Button>
               <Button 
                 onClick={() => router.push('/onboarding')} 
-                variant="outline" 
+                variant="ghost" 
                 className="w-full"
               >
                 Back to Application
@@ -325,12 +362,20 @@ export default function OffersPage() {
               </div>
               <div>
                 <p className="text-gray-600">Mobile</p>
-                <p className="font-medium">+91 {draft.mobile}</p>
+                <p className="font-medium">{draft.country_code || '+91'} {draft.mobile}</p>
               </div>
             </div>
           </CardContent>
         </Card>
       </div>
     </div>
+  )
+}
+
+export default function OffersPage() {
+  return (
+    <AuthErrorBoundary>
+      <OffersPageContent />
+    </AuthErrorBoundary>
   )
 }

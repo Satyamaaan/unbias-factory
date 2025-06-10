@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { BorrowerProvider } from "@/contexts/BorrowerContext";
+import { AuthErrorBoundary } from "@/components/AuthErrorBoundary";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
-        <BorrowerProvider>
-          {children}
-        </BorrowerProvider>
+        <AuthErrorBoundary>
+          <BorrowerProvider>
+            {children}
+          </BorrowerProvider>
+        </AuthErrorBoundary>
       </body>
     </html>
   );
