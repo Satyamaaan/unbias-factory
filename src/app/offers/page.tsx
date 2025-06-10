@@ -25,8 +25,17 @@ export default function OffersPage() {
   const [offers, setOffers] = useState<Offer[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [hasMounted, setHasMounted] = useState(false)
+
+  // Ensure component has mounted on client side before rendering
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
 
   useEffect(() => {
+    // Only run after component has mounted to avoid hydration mismatch
+    if (!hasMounted) return
+
     // Check if user is verified and has completed onboarding
     if (!draft.verified || !draft.borrower_id) {
       router.push('/onboarding')
@@ -35,7 +44,7 @@ export default function OffersPage() {
 
     // Check if user is authenticated with Supabase
     checkAuthAndFetchOffers()
-  }, [draft.verified, draft.borrower_id, router])
+  }, [draft.verified, draft.borrower_id, router, hasMounted])
 
   const checkAuthAndFetchOffers = async () => {
     try {
@@ -144,6 +153,18 @@ export default function OffersPage() {
       return (offer.processing_fee_value / 100) * offer.loan_amount
     }
     return offer.processing_fee_value || 0
+  }
+
+  // Show loading state until component has mounted to prevent hydration mismatch
+  if (!hasMounted) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    )
   }
 
   if (loading) {
