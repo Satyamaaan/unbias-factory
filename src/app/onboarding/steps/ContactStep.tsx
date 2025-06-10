@@ -1,115 +1,129 @@
 'use client'
 import { useState } from 'react'
 import { WizardLayout } from "@/components/WizardLayout"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button"
+import { MobileInput } from "@/components/MobileInput"
 import { supabase } from "@/lib/supabase"
 import { useBorrower } from "@/contexts/BorrowerContext"
 
 export function ContactStep() {
   const { draft, updateDraft, nextStep, prevStep } = useBorrower()
+  const [countryCode, setCountryCode] = useState('+91')
+  const [phoneNumber, setPhoneNumber] = useState(draft.mobile || '')
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSendingOtp, setIsSendingOtp] = useState(false)
 
-  const handleSendOtp = async () => {
-    const newErrors: Record<string, string> = {}
+  const validateMobileNumber = (number: string, code: string) => {
+    if (!number) return 'Please enter your mobile number'
     
-    if (!draft.mobile) {
-      newErrors.mobile = 'Please enter your mobile number'
-    } else if (!/^[6-9]\d{9}$/.test(draft.mobile)) {
-      newErrors.mobile = 'Please enter a valid Indian mobile number'
+    const cleanNumber = number.replace(/\D/g, '')
+    
+    switch (code) {
+      case '+91':
+        if (!/^[6-9]\d{9}$/.test(cleanNumber)) {
+          return 'Please enter a valid Indian mobile number (10 digits starting with 6-9)'
+        }
+        break
+      case '+1':
+        if (!/^\d{10}$/.test(cleanNumber)) {
+          return 'Please enter a valid US/Canada phone number (10 digits)'
+        }
+        break
+      case '+44':
+        if (!/^\d{10,11}$/.test(cleanNumber)) {
+          return 'Please enter a valid UK phone number (10-11 digits)'
+        }
+        break
+      default:
+        if (cleanNumber.length < 7 || cleanNumber.length > 15) {
+          return 'Please enter a valid phone number (7-15 digits)'
+        }
+    }
+    
+    return null
+  }
+
+  const handleSendOtp = async () => {
+    const validationError = validateMobileNumber(phoneNumber, countryCode)
+    
+    if (validationError) {
+      setErrors({ mobile: validationError })
+      return
     }
 
-    setErrors(newErrors)
-
-    if (Object.keys(newErrors).length === 0) {
-      setIsSendingOtp(true)
+    setErrors({})
+    setIsSendingOtp(true)
+    
+    try {
+      const fullPhoneNumber = `${countryCode}${phoneNumber.replace(/\D/g, '')}`
       
-      try {
-        const phone = `+91${draft.mobile}`
-        
-        console.log('Sending OTP to:', phone)
-        
-        const { error } = await supabase.auth.signInWithOtp({
-          phone,
-          options: {
-            channel: 'sms'
-          }
-        })
-
-        if (error) {
-          throw error
+      console.log('Sending OTP to:', fullPhoneNumber)
+      
+      const { error } = await supabase.auth.signInWithOtp({
+        phone: fullPhoneNumber,
+        options: {
+          channel: 'sms'
         }
+      })
 
-        console.log('✅ OTP sent successfully to:', phone)
-        nextStep() // Move to OTP verification step
-
-      } catch (error: any) {
-        console.error('❌ Send OTP error:', error)
-        
-        // Handle specific error cases
-        if (error.message?.includes('rate limit')) {
-          setErrors({ mobile: 'Too many OTP requests. Please wait before trying again.' })
-        } else if (error.message?.includes('invalid')) {
-          setErrors({ mobile: 'Invalid phone number format' })
-        } else {
-          setErrors({ mobile: error.message || 'Failed to send OTP. Please try again.' })
-        }
-      } finally {
-        setIsSendingOtp(false)
+      if (error) {
+        throw error
       }
+
+      // Update draft with mobile number
+      updateDraft({ 
+        mobile: phoneNumber.replace(/\D/g, ''),
+        country_code: countryCode 
+      })
+
+      console.log('✅ OTP sent successfully to:', fullPhoneNumber)
+      nextStep() // Move to OTP verification step
+
+    } catch (error: any) {
+      console.error('❌ Send OTP error:', error)
+      
+      if (error.message?.includes('rate limit')) {
+        setErrors({ mobile: 'Too many OTP requests. Please wait before trying again.' })
+      } else if (error.message?.includes('invalid')) {
+        setErrors({ mobile: 'Invalid phone number format' })
+      } else {
+        setErrors({ mobile: error.message || 'Failed to send OTP. Please try again.' })
+      }
+    } finally {
+      setIsSendingOtp(false)
     }
   }
 
-  const isValidMobile = draft.mobile && /^[6-9]\d{9}$/.test(draft.mobile)
+  const isValidMobile = !validateMobileNumber(phoneNumber, countryCode)
 
   return (
     <WizardLayout
-      title="Contact Information"
-      description="We'll send you an OTP to verify your mobile number"
+      title="Verify Your Mobile Number"
+      description="We'll send you a verification code to confirm your mobile number"
       onNext={handleSendOtp}
       onBack={prevStep}
-      nextLabel={isSendingOtp ? "Sending OTP..." : "Send OTP"}
+      nextLabel={isSendingOtp ? "Sending OTP..." : "Send Verification Code"}
       nextDisabled={!isValidMobile || isSendingOtp}
       showProgress={true}
     >
-      <div className="space-y-4">
-        <div>
-          <Label htmlFor="mobile">Mobile Number</Label>
-          <div className="flex">
-            <div className="flex items-center px-3 bg-gray-50 border border-r-0 rounded-l-md">
-              <span className="text-sm text-gray-600">+91</span>
-            </div>
-            <Input
-              id="mobile"
-              type="tel"
-              placeholder="9876543210"
-              className="rounded-l-none"
-              value={draft.mobile || ''}
-              onChange={(e) => {
-                const value = e.target.value.replace(/\D/g, '').slice(0, 10)
-                updateDraft({ mobile: value })
-                // Clear errors when user types
-                if (errors.mobile) {
-                  setErrors({})
-                }
-              }}
-            />
-          </div>
-          {errors.mobile && (
-            <p className="text-sm text-red-600 mt-1">{errors.mobile}</p>
-          )}
-          {isValidMobile && !errors.mobile && (
-            <p className="text-sm text-green-600 mt-1">✅ Valid mobile number</p>
-          )}
-        </div>
+      <div className="space-y-6">
+        <MobileInput
+          countryCode={countryCode}
+          phoneNumber={phoneNumber}
+          onCountryCodeChange={setCountryCode}
+          onPhoneNumberChange={setPhoneNumber}
+          error={errors.mobile}
+          disabled={isSendingOtp}
+        />
 
         {/* Development testing helper */}
-        <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
-          <p className="text-xs text-blue-700">
-            <strong>For testing:</strong> Use test number <code>5551234567</code> - you'll receive OTP: <code>123456</code>
-          </p>
-        </div>
+        {process.env.NODE_ENV === 'development' && (
+          <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-xs text-blue-700">
+              <strong>For testing:</strong> Use any valid format number - you'll receive OTP: <code>123456</code>
+            </p>
+          </div>
+        )}
 
         {/* Application Summary */}
         <div className="mt-6 p-4 bg-gray-50 rounded-lg">

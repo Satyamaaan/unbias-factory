@@ -20,6 +20,7 @@ export interface BorrowerDraft {
   
   // Contact
   mobile?: string
+  country_code?: string
 
   // Verification & User Data
   verified?: boolean

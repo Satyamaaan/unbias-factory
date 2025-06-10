@@ -44,14 +44,19 @@ export default function Home() {
   return (
     <main className="min-h-screen p-8 max-w-6xl mx-auto">
       <div className="text-center space-y-6">
-        <h1 className="text-4xl font-bold">Unbias Lending</h1>
-        <p className="text-muted-foreground">Digital home loan marketplace</p>
+        <div>
+          <h1 className="text-4xl font-bold mb-2">Unbias Lending</h1>
+          <p className="text-muted-foreground text-lg">Digital home loan marketplace</p>
+          <p className="text-sm text-gray-600 mt-2">
+            Find the best home loan offers with transparent, unbiased comparison
+          </p>
+        </div>
         
         {/* Navigation */}
         <div className="flex gap-4 justify-center">
           <Link href="/onboarding">
-            <Button size="lg" className="px-8">
-              Apply for Loan
+            <Button size="lg" className="px-8 bg-green-600 hover:bg-green-700">
+              Apply for Home Loan
             </Button>
           </Link>
           <Link href="/test-performance">
@@ -60,8 +65,42 @@ export default function Home() {
             </Button>
           </Link>
         </div>
+
+        {/* Features */}
+        <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">📱 Mobile Verification</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Secure OTP-based mobile number verification with real-time validation
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">🎯 Smart Matching</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                AI-powered loan matching based on your profile and eligibility
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">⚡ Instant Offers</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Get personalized loan offers from multiple lenders in seconds
+              </p>
+            </CardContent>
+          </Card>
+        </div>
         
-        <Card className="max-w-4xl mx-auto">
+        <Card className="max-w-4xl mx-auto mt-12">
           <CardHeader>
             <CardTitle>Comparison Engine Test</CardTitle>
           </CardHeader>
