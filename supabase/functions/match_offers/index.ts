@@ -27,10 +27,31 @@ serve(async (req) => {
   }
 
   try {
+    // Get authorization header
+    const authHeader = req.headers.get('authorization')
+    if (!authHeader) {
+      return new Response(
+        JSON.stringify({ error: 'Authorization header required' }),
+        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     )
+
+    // Verify the JWT token and get user
+    const token = authHeader.replace('Bearer ', '')
+    const { data: { user }, error: authError } = await supabase.auth.getUser(token)
+    
+    if (authError || !user) {
+      console.error('Authentication error:', authError)
+      return new Response(
+        JSON.stringify({ error: 'Invalid or expired token' }),
+        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
 
     const { borrower_id } = await req.json()
 
@@ -41,6 +62,26 @@ serve(async (req) => {
       )
     }
 
+    // CRITICAL SECURITY CHECK: Verify borrower belongs to authenticated user
+    const { data: borrowerCheck, error: borrowerError } = await supabase
+      .from('borrowers')
+      .select('id')
+      .eq('id', borrower_id)
+      .eq('id', user.id) // This ensures the borrower_id matches the authenticated user's ID
+      .single()
+
+    if (borrowerError || !borrowerCheck) {
+      console.error('Unauthorized access attempt:', { 
+        user_id: user.id, 
+        requested_borrower_id: borrower_id,
+        error: borrowerError 
+      })
+      return new Response(
+        JSON.stringify({ error: 'Unauthorized access to borrower data' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
     // Get borrower info for EMI calculation
     const { data: borrower } = await supabase
       .from('borrowers')
@@ -48,7 +89,7 @@ serve(async (req) => {
       .eq('id', borrower_id)
       .single()
 
-    // Call our SQL function
+    // Call our SQL function with the validated borrower_id
     const { data: offers, error } = await supabase
       .rpc('match_products', { input_borrower_id: borrower_id })
 
@@ -63,7 +104,7 @@ serve(async (req) => {
     // Enhance offers with EMI calculation
     const enhancedOffers = offers?.map((offer: any) => {
       const loanAmount = borrower?.loan_amount_required || 0;
-      const emi = calculateEMI(loanAmount, offer.interest_rate);
+      const emi = calculateEMI(loanAmount, offer.interest_rate_min);
       
       return {
         ...offer,
@@ -77,8 +118,11 @@ serve(async (req) => {
       borrower_id,
       offers: enhancedOffers,
       count: enhancedOffers.length,
-      generated_at: new Date().toISOString()
+      generated_at: new Date().toISOString(),
+      user_id: user.id // Include for debugging/logging
     }
+
+    console.log(`✅ Successfully generated ${enhancedOffers.length} offers for user ${user.id}`)
 
     return new Response(
       JSON.stringify(response),

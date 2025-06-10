@@ -27,30 +27,99 @@ export default function OffersPage() {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    // Check if user is verified
+    // Check if user is verified and has completed onboarding
     if (!draft.verified || !draft.borrower_id) {
       router.push('/onboarding')
       return
     }
 
-    fetchOffers()
+    // Check if user is authenticated with Supabase
+    checkAuthAndFetchOffers()
   }, [draft.verified, draft.borrower_id, router])
+
+  const checkAuthAndFetchOffers = async () => {
+    try {
+      // Check current auth session
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession()
+      
+      if (sessionError || !session) {
+        console.error('No valid session found:', sessionError)
+        router.push('/onboarding')
+        return
+      }
+
+      // Verify the session user matches the borrower
+      if (session.user.id !== draft.borrower_id) {
+        console.error('Session user ID does not match borrower ID')
+        router.push('/onboarding')
+        return
+      }
+
+      await fetchOffers()
+    } catch (error) {
+      console.error('Auth check failed:', error)
+      router.push('/onboarding')
+    }
+  }
 
   const fetchOffers = async () => {
     if (!draft.borrower_id) return
 
     try {
       setLoading(true)
+      setError('')
+
+      // Get current session for authorization
+      const { data: { session } } = await supabase.auth.getSession()
+      
+      if (!session) {
+        throw new Error('No authentication session found')
+      }
+
       const { data, error } = await supabase.functions.invoke('match_offers', {
-        body: { borrower_id: draft.borrower_id }
+        body: { borrower_id: draft.borrower_id },
+        headers: {
+          Authorization: `Bearer ${session.access_token}`
+        }
       })
 
-      if (error) throw error
+      if (error) {
+        console.error('API Error:', error)
+        throw error
+      }
 
-      setOffers(data.offers || [])
+      // Validate response structure
+      if (!data || typeof data !== 'object') {
+        throw new Error('Invalid response format')
+      }
+
+      const validatedOffers = (data.offers || []).filter((offer: any) => {
+        return (
+          offer &&
+          typeof offer.product_id === 'string' &&
+          typeof offer.lender_name === 'string' &&
+          typeof offer.product_name === 'string' &&
+          typeof offer.interest_rate_min === 'number' &&
+          typeof offer.loan_amount === 'number'
+        )
+      })
+
+      setOffers(validatedOffers)
+      console.log(`✅ Loaded ${validatedOffers.length} validated offers`)
+
     } catch (error: any) {
       console.error('Error fetching offers:', error)
-      setError('Failed to load offers. Please try again.')
+      
+      // Handle specific error types
+      if (error.message?.includes('Unauthorized') || error.message?.includes('Invalid or expired token')) {
+        setError('Session expired. Please log in again.')
+        setTimeout(() => router.push('/onboarding'), 2000)
+      } else if (error.message?.includes('Forbidden') || error.message?.includes('Unauthorized access')) {
+        setError('Access denied. Please verify your account.')
+        setTimeout(() => router.push('/onboarding'), 2000)
+      } else {
+        setError('Failed to load offers. Please try again.')
+      }
     } finally {
       setLoading(false)
     }
@@ -83,6 +152,7 @@ export default function OffersPage() {
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Finding the best loan offers for you...</p>
+          <p className="text-sm text-gray-500 mt-2">Verifying your account and matching offers</p>
         </div>
       </div>
     )
@@ -93,8 +163,23 @@ export default function OffersPage() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <Card className="max-w-md">
           <CardContent className="p-6 text-center">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">❌</span>
+            </div>
+            <h3 className="text-lg font-semibold mb-2">Unable to Load Offers</h3>
             <p className="text-red-600 mb-4">{error}</p>
-            <Button onClick={fetchOffers}>Try Again</Button>
+            <div className="space-y-2">
+              <Button onClick={fetchOffers} className="w-full">
+                Try Again
+              </Button>
+              <Button 
+                onClick={() => router.push('/onboarding')} 
+                variant="outline" 
+                className="w-full"
+              >
+                Back to Application
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -106,11 +191,15 @@ export default function OffersPage() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Your Loan Offers
+            Your Personalized Loan Offers
           </h1>
           <p className="text-gray-600">
             We found {offers.length} loan offers that match your profile
           </p>
+          <div className="flex items-center justify-center gap-2 mt-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span className="text-sm text-green-600">Verified Account</span>
+          </div>
         </div>
 
         {offers.length === 0 ? (
