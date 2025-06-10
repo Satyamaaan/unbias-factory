@@ -1,4 +1,5 @@
 import { supabase } from './supabase'
+import { logger } from './logger'
 
 export interface AuthSession {
   user: any
@@ -23,15 +24,17 @@ class AuthManager {
    */
   async getValidSession(): Promise<AuthSession | null> {
     try {
+      logger.authDebug('Getting valid session')
+      
       const { data: { session }, error } = await supabase.auth.getSession()
       
       if (error) {
-        console.error('Session retrieval error:', error)
+        logger.authError('Session retrieval error', { error: error.message })
         return null
       }
 
       if (!session) {
-        console.log('No active session found')
+        logger.authDebug('No active session found')
         return null
       }
 
@@ -41,9 +44,19 @@ class AuthManager {
       const fiveMinutes = 5 * 60
 
       if (expiresAt - now < fiveMinutes) {
-        console.log('Token expires soon, refreshing...')
+        logger.authInfo('Token expires soon, refreshing', { 
+          expiresAt,
+          now,
+          timeUntilExpiry: expiresAt - now 
+        })
         return await this.refreshSession()
       }
+
+      logger.authDebug('Session is valid', { 
+        userId: session.user?.id,
+        expiresAt,
+        timeUntilExpiry: expiresAt - now 
+      })
 
       return {
         user: session.user,
@@ -51,8 +64,8 @@ class AuthManager {
         refresh_token: session.refresh_token || '',
         expires_at: expiresAt
       }
-    } catch (error) {
-      console.error('Error getting session:', error)
+    } catch (error: any) {
+      logger.authError('Error getting session', { error: error.message })
       return null
     }
   }
@@ -63,6 +76,7 @@ class AuthManager {
   async refreshSession(): Promise<AuthSession | null> {
     // Prevent multiple simultaneous refresh attempts
     if (this.refreshPromise) {
+      logger.authDebug('Refresh already in progress, waiting for existing promise')
       return await this.refreshPromise
     }
 
@@ -76,12 +90,18 @@ class AuthManager {
   private async _performRefresh(): Promise<AuthSession | null> {
     for (let attempt = 1; attempt <= this.maxRetries; attempt++) {
       try {
-        console.log(`Token refresh attempt ${attempt}/${this.maxRetries}`)
+        logger.authInfo('Token refresh attempt', { 
+          attempt,
+          maxRetries: this.maxRetries 
+        })
         
         const { data: { session }, error } = await supabase.auth.refreshSession()
         
         if (error) {
-          console.error(`Refresh attempt ${attempt} failed:`, error)
+          logger.authError('Refresh attempt failed', { 
+            attempt,
+            error: error.message 
+          })
           
           if (attempt === this.maxRetries) {
             throw new Error(`Token refresh failed after ${this.maxRetries} attempts: ${error.message}`)
@@ -96,15 +116,22 @@ class AuthManager {
           throw new Error('Refresh returned no session')
         }
 
-        console.log('✅ Token refreshed successfully')
+        logger.authInfo('Token refreshed successfully', { 
+          userId: session.user?.id,
+          expiresAt: session.expires_at 
+        })
+        
         return {
           user: session.user,
           access_token: session.access_token,
           refresh_token: session.refresh_token || '',
           expires_at: session.expires_at || 0
         }
-      } catch (error) {
-        console.error(`Refresh attempt ${attempt} error:`, error)
+      } catch (error: any) {
+        logger.authError('Refresh attempt error', { 
+          attempt,
+          error: error.message 
+        })
         
         if (attempt === this.maxRetries) {
           throw error
@@ -122,9 +149,12 @@ class AuthManager {
    */
   async validateSession(requiredUserId?: string): Promise<{ valid: boolean; session?: AuthSession; error?: AuthError }> {
     try {
+      logger.authDebug('Validating session', { requiredUserId })
+      
       const session = await this.getValidSession()
       
       if (!session) {
+        logger.authWarn('Session validation failed - no valid session')
         return {
           valid: false,
           error: {
@@ -137,6 +167,11 @@ class AuthManager {
 
       // Validate user ID if required
       if (requiredUserId && session.user.id !== requiredUserId) {
+        logger.authError('Session validation failed - user ID mismatch', { 
+          sessionUserId: session.user.id,
+          requiredUserId 
+        })
+        
         return {
           valid: false,
           error: {
@@ -147,9 +182,16 @@ class AuthManager {
         }
       }
 
+      logger.authDebug('Session validation successful', { 
+        userId: session.user.id 
+      })
+
       return { valid: true, session }
     } catch (error: any) {
-      console.error('Session validation error:', error)
+      logger.authError('Session validation error', { 
+        error: error.message,
+        requiredUserId 
+      })
       
       return {
         valid: false,
@@ -167,10 +209,11 @@ class AuthManager {
    */
   async signOut(): Promise<void> {
     try {
+      logger.authInfo('Signing out user')
       await supabase.auth.signOut()
-      console.log('✅ Signed out successfully')
-    } catch (error) {
-      console.error('Sign out error:', error)
+      logger.authInfo('Sign out successful')
+    } catch (error: any) {
+      logger.authError('Sign out error', { error: error.message })
       // Don't throw - signing out should always succeed locally
     }
   }
@@ -187,7 +230,53 @@ class AuthManager {
     const retryableKeywords = ['network', 'timeout', 'connection', 'temporary']
     const retryable = retryableKeywords.some(keyword => message.includes(keyword))
     
+    logger.authDebug('Auth error analysis', { 
+      message,
+      isAuth,
+      retryable 
+    })
+    
     return { isAuth, retryable }
+  }
+
+  /**
+   * Get session health information
+   */
+  async getSessionHealth(): Promise<{
+    hasSession: boolean
+    isValid: boolean
+    expiresAt?: number
+    timeUntilExpiry?: number
+    userId?: string
+    lastRefresh?: Date
+  }> {
+    try {
+      const session = await this.getValidSession()
+      
+      if (!session) {
+        return {
+          hasSession: false,
+          isValid: false
+        }
+      }
+
+      const now = Math.floor(Date.now() / 1000)
+      const timeUntilExpiry = session.expires_at - now
+
+      return {
+        hasSession: true,
+        isValid: timeUntilExpiry > 0,
+        expiresAt: session.expires_at,
+        timeUntilExpiry: Math.max(0, timeUntilExpiry),
+        userId: session.user?.id
+      }
+    } catch (error: any) {
+      logger.authError('Session health check failed', { error: error.message })
+      return {
+        hasSession: false,
+        isValid: false
+      }
+    }
   }
 
   private delay(ms: number): Promise<void> {
@@ -203,7 +292,12 @@ export async function requireAuth(requiredUserId?: string): Promise<AuthSession>
   const { valid, session, error } = await authManager.validateSession(requiredUserId)
   
   if (!valid || !session) {
-    throw new Error(error?.message || 'Authentication required')
+    const errorMessage = error?.message || 'Authentication required'
+    logger.authError('Authentication requirement failed', { 
+      error: errorMessage,
+      requiredUserId 
+    })
+    throw new Error(errorMessage)
   }
   
   return session
@@ -213,6 +307,48 @@ export async function makeAuthenticatedRequest<T>(
   requestFn: (session: AuthSession) => Promise<T>,
   requiredUserId?: string
 ): Promise<T> {
+  logger.authDebug('Making authenticated request', { requiredUserId })
+  
   const session = await requireAuth(requiredUserId)
-  return await requestFn(session)
+  
+  try {
+    const result = await requestFn(session)
+    logger.authDebug('Authenticated request successful')
+    return result
+  } catch (error: any) {
+    logger.authError('Authenticated request failed', { 
+      error: error.message,
+      requiredUserId 
+    })
+    throw error
+  }
+}
+
+export async function withAuthRetry<T>(
+  operation: () => Promise<T>,
+  maxRetries: number = 2
+): Promise<T> {
+  for (let attempt = 1; attempt <= maxRetries + 1; attempt++) {
+    try {
+      return await operation()
+    } catch (error: any) {
+      const { isAuth, retryable } = authManager.isAuthError(error)
+      
+      if (isAuth && retryable && attempt <= maxRetries) {
+        logger.authWarn('Auth operation failed, retrying', { 
+          attempt,
+          maxRetries,
+          error: error.message 
+        })
+        
+        // Try to refresh session before retry
+        await authManager.refreshSession()
+        continue
+      }
+      
+      throw error
+    }
+  }
+  
+  throw new Error('Operation failed after all retries')
 }

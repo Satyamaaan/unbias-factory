@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { BorrowerProvider } from "@/contexts/BorrowerContext";
 import { AuthErrorBoundary } from "@/components/AuthErrorBoundary";
+import { AuthFallbackProvider } from "@/components/AuthFallbackProvider";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
         <AuthErrorBoundary>
-          <BorrowerProvider>
-            {children}
-          </BorrowerProvider>
+          <AuthFallbackProvider enableFallbacks={true} showHealthIndicator={true}>
+            <BorrowerProvider>
+              {children}
+            </BorrowerProvider>
+          </AuthFallbackProvider>
         </AuthErrorBoundary>
       </body>
     </html>
