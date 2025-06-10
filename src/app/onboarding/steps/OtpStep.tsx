@@ -43,7 +43,8 @@ export function OtpStep() {
       if (process.env.NODE_ENV === 'development' && otp === '123456') {
         console.log('🚀 Development mode: OTP verified successfully')
         
-        const mockUserId = `dev-user-${draft.mobile || Date.now()}`
+        // Generate a valid UUID for development mode
+        const mockUserId = crypto.randomUUID()
         updateDraft({ 
           verified: true,
           user_id: mockUserId 
