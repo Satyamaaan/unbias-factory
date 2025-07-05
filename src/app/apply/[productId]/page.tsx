@@ -213,8 +213,18 @@ export default function ApplyPage() {
 
       console.log('Submitting application:', applicationData)
       
-      // Here you would typically save to database
-      // For now, we'll simulate a successful submission
+      // Save application to database
+      const { data, error } = await supabase
+        .from('applications')
+        .insert([applicationData])
+        .select()
+        .single()
+
+      if (error) {
+        throw new Error(`Failed to save application: ${error.message}`)
+      }
+
+      console.log('Application saved successfully:', data)
       
       setApplicationStatus('submitted')
       setCurrentStep(3) // Move to confirmation step

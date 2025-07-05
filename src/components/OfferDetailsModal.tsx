@@ -22,10 +22,10 @@ interface Offer {
 
 interface OfferDetailsModalProps {
   offer: Offer
-  children: React.ReactNode
+  onClose: () => void
 }
 
-export function OfferDetailsModal({ offer, children }: OfferDetailsModalProps) {
+export function OfferDetailsModal({ offer, onClose }: OfferDetailsModalProps) {
   const router = useRouter()
 
   const formatCurrency = (amount: number) => {
@@ -60,16 +60,19 @@ export function OfferDetailsModal({ offer, children }: OfferDetailsModalProps) {
   const tenureOptions = [10, 15, 20, 25, 30]
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        {children}
-      </DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-green-800">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-white rounded-lg p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto relative">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+        >
+          ✕
+        </button>
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-green-800">
             {offer.lender_name} - {offer.product_name}
-          </DialogTitle>
-        </DialogHeader>
+          </h2>
+        </div>
         
         <div className="space-y-6">
           {/* Key Highlights */}
@@ -398,7 +401,7 @@ export function OfferDetailsModal({ offer, children }: OfferDetailsModalProps) {
             </Button>
           </div>
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   )
 }

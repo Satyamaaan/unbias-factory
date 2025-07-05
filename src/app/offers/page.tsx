@@ -31,7 +31,28 @@ function OffersPageContent() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [retryCount, setRetryCount] = useState(0)
+  const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null)
   const maxRetries = 3
+
+  // Debug logging for development
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('🔍 Offers page debug:', {
+        draft: {
+          verified: draft.verified,
+          borrower_id: draft.borrower_id,
+          user_id: draft.user_id,
+          mobile: draft.mobile
+        },
+        auth: {
+          loading: authLoading,
+          authenticated: isAuthenticated,
+          hasSession: !!session,
+          error: authError?.message
+        }
+      })
+    }
+  }, [draft, authLoading, isAuthenticated, session, authError])
 
   useEffect(() => {
     // Only proceed if auth is loaded and we have required data
@@ -40,6 +61,13 @@ function OffersPageContent() {
     // Check if user completed onboarding
     if (!draft.verified || !draft.borrower_id) {
       router.push('/onboarding')
+      return
+    }
+
+    // Development mode: bypass auth check if we have draft data
+    if (process.env.NODE_ENV === 'development' && draft.verified && draft.borrower_id) {
+      console.log('🚀 Development mode: Bypassing auth check, proceeding to fetch offers')
+      fetchOffers()
       return
     }
 
@@ -61,11 +89,53 @@ function OffersPageContent() {
   }, [authLoading, isAuthenticated, authError, draft.verified, draft.borrower_id, router, refreshSession, retryCount])
 
   const fetchOffers = async () => {
-    if (!draft.borrower_id || !session) return
+    if (!draft.borrower_id) return
 
     try {
       setLoading(true)
       setError('')
+
+      // Development mode: simulate offers without auth
+      if (process.env.NODE_ENV === 'development') {
+        console.log('🚀 Development mode: Simulating offers fetch')
+        
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1500))
+        
+        const mockOffers = [
+          {
+            product_id: 'dev-offer-1',
+            lender_name: 'Dev Bank A',
+            product_name: 'Dev Home Loan Premium',
+            interest_rate_min: 8.5,
+            processing_fee_value: 0.5,
+            processing_fee_type: 'Percentage',
+            max_ltv_ratio_tier1: 80,
+            loan_amount: 5000000,
+            estimated_emi: 41000
+          },
+          {
+            product_id: 'dev-offer-2',
+            lender_name: 'Dev Bank B',
+            product_name: 'Dev Home Loan Basic',
+            interest_rate_min: 9.2,
+            processing_fee_value: 25000,
+            processing_fee_type: 'Fixed',
+            max_ltv_ratio_tier1: 75,
+            loan_amount: 4500000,
+            estimated_emi: 38500
+          }
+        ]
+        
+        setOffers(mockOffers)
+        console.log(`✅ Development mode: Loaded ${mockOffers.length} mock offers`)
+        return
+      }
+
+      // Production mode: use authenticated request
+      if (!session) {
+        throw new Error('No valid session available')
+      }
 
       const data = await makeAuthenticatedRequest(
         async (authSession) => {
@@ -282,71 +352,76 @@ function OffersPageContent() {
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {offers.map((offer, index) => (
-              <OfferDetailsModal key={offer.product_id} offer={offer}>
-                <Card className="border-l-4 border-l-green-500 hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardHeader className="pb-3">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <CardTitle className="text-lg text-green-800">
-                          {offer.lender_name}
-                        </CardTitle>
-                        <p className="text-green-700 font-medium text-sm">
-                          {offer.product_name}
-                        </p>
-                      </div>
-                      <Badge className="bg-green-100 text-green-800">
-                        #{index + 1}
-                      </Badge>
+              <Card 
+                key={offer.product_id} 
+                className="border-l-4 border-l-green-500 hover:shadow-lg transition-shadow cursor-pointer"
+                onClick={() => setSelectedOffer(offer)}
+              >
+                <CardHeader className="pb-3">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <CardTitle className="text-lg text-green-800">
+                        {offer.lender_name}
+                      </CardTitle>
+                      <p className="text-green-700 font-medium text-sm">
+                        {offer.product_name}
+                      </p>
                     </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-bold text-green-800">
-                        {offer.interest_rate_min}%
-                      </div>
-                      <div className="text-sm text-gray-600">per annum</div>
+                    <Badge className="bg-green-100 text-green-800">
+                      #{index + 1}
+                    </Badge>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-green-800">
+                      {offer.interest_rate_min}%
                     </div>
-                  </CardHeader>
+                    <div className="text-sm text-gray-600">per annum</div>
+                  </div>
+                </CardHeader>
+                
+                <CardContent className="pt-0">
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <p className="text-gray-600">Loan Amount</p>
+                      <p className="font-semibold">{formatLoanAmount(offer.loan_amount)}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-600">EMI (20 years)</p>
+                      <p className="font-semibold">{formatCurrency(offer.estimated_emi)}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-600">Processing Fee</p>
+                      <p className="font-semibold">{formatCurrency(calculateProcessingFee(offer))}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-600">Max LTV</p>
+                      <p className="font-semibold">{offer.max_ltv_ratio_tier1}%</p>
+                    </div>
+                  </div>
                   
-                  <CardContent className="pt-0">
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <p className="text-gray-600">Loan Amount</p>
-                        <p className="font-semibold">{formatLoanAmount(offer.loan_amount)}</p>
-                      </div>
-                      <div>
-                        <p className="text-gray-600">EMI (20 years)</p>
-                        <p className="font-semibold">{formatCurrency(offer.estimated_emi)}</p>
-                      </div>
-                      <div>
-                        <p className="text-gray-600">Processing Fee</p>
-                        <p className="font-semibold">{formatCurrency(calculateProcessingFee(offer))}</p>
-                      </div>
-                      <div>
-                        <p className="text-gray-600">Max LTV</p>
-                        <p className="font-semibold">{offer.max_ltv_ratio_tier1}%</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex space-x-2 mt-4">
-                      <Button 
-                        className="flex-1 bg-green-600 hover:bg-green-700"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          router.push(`/apply/${offer.product_id}`)
-                        }}
-                      >
-                        Apply Now
-                      </Button>
-                      <Button 
-                        variant="outline"
-                        className="flex-1"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        View Details
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </OfferDetailsModal>
+                  <div className="flex space-x-2 mt-4">
+                    <Button 
+                      className="flex-1 bg-green-600 hover:bg-green-700"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        router.push(`/apply/${offer.product_id}`)
+                      }}
+                    >
+                      Apply Now
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      className="flex-1"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setSelectedOffer(offer)
+                      }}
+                    >
+                      View Details
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         )}
@@ -386,6 +461,14 @@ function OffersPageContent() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Single Modal for Offer Details */}
+      {selectedOffer && (
+        <OfferDetailsModal 
+          offer={selectedOffer} 
+          onClose={() => setSelectedOffer(null)}
+        />
+      )}
     </div>
   )
 }

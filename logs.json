@@ -1,0 +1,5551 @@
+[
+  {
+    "timestamp": "2025-07-05T12:55:00.294Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check failed",
+    "data": {
+      "error": "Failed to fetch"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.636Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.637Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.637Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.637Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.637Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.637Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.637Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.637Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.637Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.638Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.638Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.638Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.638Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.638Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.638Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.638Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.638Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.638Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.639Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.640Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:04.640Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:10.671Z",
+    "level": "DEBUG",
+    "category": "DEBUG_PANEL",
+    "message": "Manual step change to 1",
+    "data": {
+      "previousStep": 5,
+      "newStep": 1
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:3872:139",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:30.287Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check failed",
+    "data": {
+      "error": "Failed to fetch"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:35.936Z",
+    "level": "DEBUG",
+    "category": "DEBUG_PANEL",
+    "message": "Manual step change to 6",
+    "data": {
+      "previousStep": 5,
+      "newStep": 6
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:3872:139",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:36.878Z",
+    "level": "DEBUG",
+    "category": "DEBUG_PANEL",
+    "message": "Manual step change to 5",
+    "data": {
+      "previousStep": 6,
+      "newStep": 5
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:3872:139",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:38.946Z",
+    "level": "DEBUG",
+    "category": "DEBUG_PANEL",
+    "message": "Manual step change to 6",
+    "data": {
+      "previousStep": 5,
+      "newStep": 6
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:3872:139",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:39.652Z",
+    "level": "DEBUG",
+    "category": "DEBUG_PANEL",
+    "message": "Manual step change to 5",
+    "data": {
+      "previousStep": 6,
+      "newStep": 5
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:3872:139",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:40.807Z",
+    "level": "DEBUG",
+    "category": "DEBUG_PANEL",
+    "message": "Manual step change to 6",
+    "data": {
+      "previousStep": 5,
+      "newStep": 6
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:3872:139",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.862Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.862Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.862Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.862Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.862Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.862Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.863Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.863Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.863Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.863Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.863Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:55:58.863Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:00.279Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check failed",
+    "data": {
+      "error": "Failed to fetch"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:01.132Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:02.649Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:02.843Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:04.795Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Manual auth test started from debug panel",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:04.796Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:06.324Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Manual auth test started from debug panel",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:06.324Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:14.468Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:15.908Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:17.428Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:17.428Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:28.173Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:30.420Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check failed",
+    "data": {
+      "error": "Failed to fetch"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.391Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.392Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.392Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.393Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.393Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.393Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.393Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.393Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.394Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.394Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.394Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.394Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.394Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:56:46.394Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:00.285Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check failed",
+    "data": {
+      "error": "Failed to fetch"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:30.616Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check failed",
+    "data": {
+      "error": "Failed to fetch"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:34.863Z",
+    "level": "ERROR",
+    "category": "AUTH",
+    "message": "Session retrieval error",
+    "data": {
+      "error": "Failed to fetch"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:516:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:34.864Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:34.865Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.483Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "SIGNED_OUT",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.484Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.486Z",
+    "level": "ERROR",
+    "category": "AUTH",
+    "message": "Session retrieval error",
+    "data": {
+      "error": "Invalid Refresh Token: Refresh Token Not Found"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:516:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.486Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.487Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.487Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.487Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.487Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.488Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.488Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.488Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.488Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.489Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth test completed",
+    "data": {
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.489Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.489Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.489Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth test completed",
+    "data": {
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.490Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.490Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.490Z",
+    "level": "INFO",
+    "category": "PERFORMANCE",
+    "message": "Session validation took 95022.40ms",
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:3583:199",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.491Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.491Z",
+    "level": "INFO",
+    "category": "PERFORMANCE",
+    "message": "Session validation took 93583.30ms",
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:3583:199",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.491Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.491Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.492Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.492Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.492Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.492Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.493Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.493Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.493Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.494Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.494Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.495Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.495Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.495Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.496Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.496Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.497Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.497Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.565Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.565Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.566Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.567Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.568Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.568Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.568Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.569Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.569Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.569Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.570Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.570Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.571Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.571Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.571Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.571Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.571Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.572Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.625Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.625Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.625Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.626Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.626Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.626Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.626Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.626Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.626Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.626Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.627Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.627Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.627Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.628Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.628Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.628Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.628Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.628Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.629Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.629Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.629Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.629Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.629Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.629Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.630Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.630Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.630Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.631Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.631Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.631Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.631Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.632Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.632Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.632Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.693Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.693Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.693Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.713Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.713Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.713Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.714Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.714Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.714Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.719Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.719Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.719Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.720Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.720Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.720Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.720Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.721Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.721Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.721Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.722Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.722Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.722Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.724Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:57:49.724Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:58:01.229Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": false,
+      "status": 503
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:58:01.231Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:58:01.231Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:58:30.232Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check failed",
+    "data": {
+      "error": "Failed to fetch"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:58:30.236Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:58:30.237Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": false,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:59:00.679Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:59:00.681Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:59:00.682Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:59:30.349Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:59:30.352Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T12:59:30.353Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:00:00.548Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:00:00.550Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:00:00.551Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:00:30.660Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:00:30.663Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:00:30.663Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:01:00.529Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:01:00.532Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:01:00.533Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:01:30.524Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:01:30.528Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:01:30.529Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:00.633Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:00.634Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:00.635Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.464Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.465Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.465Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.465Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.466Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.466Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.466Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.466Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.466Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.467Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.467Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.468Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.469Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.469Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.519Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.520Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.520Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.543Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.544Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.544Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.548Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.549Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.646Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.646Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.646Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.647Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.647Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.647Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.647Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.648Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.648Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.648Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.648Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.648Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.649Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.649Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.650Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.650Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.651Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.651Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.651Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.652Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.652Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.652Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.652Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.653Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.653Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.653Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.653Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.653Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.654Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.654Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.654Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.654Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.655Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.655Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.667Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.668Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.668Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.678Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.679Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.679Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.680Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.680Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.680Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.682Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.682Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.683Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.683Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.683Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.684Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.684Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.684Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.685Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.685Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.685Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.686Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.686Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.688Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:14.689Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.857Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.858Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.858Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.860Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.861Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.861Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.862Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.862Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.863Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.863Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.863Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.864Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.864Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.865Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.876Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.877Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.877Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.895Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.896Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.896Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.898Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:15.899Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.002Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.002Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.002Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.003Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.003Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.003Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.003Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.004Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.004Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.004Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.005Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.005Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.005Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.006Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.006Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.006Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.007Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.007Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.009Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.009Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.009Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.010Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.010Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.010Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.011Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.011Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.011Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.012Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.012Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.012Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.013Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.013Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.013Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.014Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.027Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.028Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.028Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.031Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.031Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.031Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.032Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.032Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.032Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.034Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.035Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.035Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.035Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.036Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.036Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.037Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.037Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.038Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.038Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.039Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.039Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.039Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.042Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:16.042Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720100196-eaay4ef3b"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.482Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.483Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.483Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.484Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.485Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.494Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.495Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.495Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.495Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.496Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.496Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.499Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.499Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.500Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.522Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.523Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.523Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.526Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.526Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.556Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.557Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.558Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.659Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.660Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.660Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.661Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.661Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.661Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.662Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.662Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.662Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.663Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.663Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.663Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.664Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.664Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.666Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.666Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.667Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.667Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.668Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.669Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.670Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.671Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.671Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.672Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.672Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.672Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.673Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.673Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.674Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.674Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.674Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.675Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.675Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.675Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.694Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.694Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.694Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.697Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.697Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.698Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.699Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.700Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.700Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.703Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.703Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.704Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.705Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.705Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.706Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.706Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.707Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.707Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.708Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.709Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.709Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.709Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.713Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:25.714Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:36.445Z",
+    "level": "INFO",
+    "category": "DEBUG_PANEL",
+    "message": "Logs copied to clipboard",
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:4197:179",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:37.907Z",
+    "level": "INFO",
+    "category": "DEBUG_PANEL",
+    "message": "Logs copied to clipboard",
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:4197:179",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:56.126Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:56.130Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:02:56.131Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:03:25.847Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:03:25.857Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:03:25.858Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:03:55.608Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:03:55.613Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:03:55.622Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720545463-8pqzu1e7q"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:17.882Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720657776-1hwh9faow"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:17.884Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720657776-1hwh9faow"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:17.884Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720657776-1hwh9faow"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:48.261Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720657776-1hwh9faow"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:48.266Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720657776-1hwh9faow"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:48.267Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720657776-1hwh9faow"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.912Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.913Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.913Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.914Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.916Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.927Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.928Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.928Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.929Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {
+      "requiredUserId": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.929Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.930Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.933Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.933Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.933Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.958Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.959Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.959Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.963Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:50.964Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.008Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.009Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.009Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.062Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.063Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.063Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.064Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.064Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.065Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.065Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.066Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.066Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.067Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.067Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.067Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.068Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.069Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.069Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.070Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.070Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.071Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.071Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Cleaning up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.071Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.072Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.072Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.073Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.073Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.073Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.074Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.074Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.075Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.075Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.076Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "useAuth hook initialized",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.076Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.077Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Validating session",
+    "data": {},
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.077Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Getting valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.078Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Setting up auth state listener",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.097Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.098Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.098Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.100Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.100Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.100Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.101Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.102Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.102Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.105Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.105Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.106Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.106Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.107Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.108Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.108Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.108Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.109Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.110Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.112Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "No active session found",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.112Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed - no valid session",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.113Z",
+    "level": "WARN",
+    "category": "AUTH",
+    "message": "Session validation failed",
+    "data": {
+      "error": "No valid session found. Please log in again.",
+      "retryable": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:513:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.115Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth state changed",
+    "data": {
+      "event": "INITIAL_SESSION",
+      "hasSession": false
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:04:51.116Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "User signed out, clearing session state",
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:05:21.285Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:05:21.287Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:05:21.288Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:05:51.235Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:05:51.238Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:05:51.240Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:06:21.054Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:06:21.061Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:06:21.063Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:06:51.353Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Connectivity check",
+    "data": {
+      "isOnline": true,
+      "status": 200
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:06:51.356Z",
+    "level": "INFO",
+    "category": "AUTH",
+    "message": "Auth health check completed",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:510:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:06:51.358Z",
+    "level": "DEBUG",
+    "category": "AUTH",
+    "message": "Auth health updated",
+    "data": {
+      "connectivity": true,
+      "supabaseStatus": true,
+      "cacheAvailable": false,
+      "anonymousEnabled": true
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_076ad364._.js:507:14",
+    "correlationId": "1751720690897-u6g8niahy"
+  },
+  {
+    "timestamp": "2025-07-05T13:07:15.169Z",
+    "level": "DEBUG",
+    "category": "DEBUG_PANEL",
+    "message": "Manual log test",
+    "data": {
+      "timestamp": "2025-07-05T13:07:15.169Z",
+      "draft": {
+        "current_step": 6,
+        "property_type": "apartment",
+        "property_value_est": 5000000,
+        "city": "ahmedabad",
+        "loan_amount_required": 2500000,
+        "dob": "1997-05-09",
+        "employment_type": "salaried",
+        "gross_salary": 25000,
+        "mobile": "7567372888",
+        "verified": true,
+        "user_id": "7db4e375-4795-41b7-b343-2bb077cc03b7",
+        "borrower_id": "7db4e375-4795-41b7-b343-2bb077cc03b7"
+      },
+      "session": false,
+      "health": {
+        "connectivity": true,
+        "supabaseStatus": true,
+        "cacheAvailable": false,
+        "anonymousEnabled": true
+      }
+    },
+    "source": "http:/localhost:3000/_next/static/chunks/src_f07b2794._.js:4177:179",
+    "correlationId": "1751720690897-u6g8niahy"
+  }
+]
