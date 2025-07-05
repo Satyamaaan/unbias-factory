@@ -35,31 +35,16 @@ export function OtpStep() {
         
         // Generate a valid UUID for development mode
         const mockUserId = crypto.randomUUID()
+        const mockBorrowerId = crypto.randomUUID()
+        
+        console.log('✅ Dev: Mock user created:', mockUserId)
+        console.log('✅ Dev: Mock borrower ID:', mockBorrowerId)
+        
         updateDraft({ 
           verified: true,
-          user_id: mockUserId 
+          user_id: mockUserId,
+          borrower_id: mockBorrowerId
         })
-        
-        // Call finalize_draft with draft data
-        try {
-          console.log('🚀 Development mode: Calling finalize_draft with:', { draft_data: draft, auth_user_id: mockUserId })
-          const { data: rpcData, error: finalizeError } = await supabase
-            .rpc('finalize_draft', {
-              draft_data: draft,
-              auth_user_id: mockUserId
-            })
-          
-          if (finalizeError) {
-            console.error('❌ Dev: Finalize draft error:', finalizeError)
-            setError('Dev: Finalize draft failed, but continuing. Error: ' + finalizeError.message)
-          } else {
-            console.log('✅ Dev: Draft finalized with borrower ID:', rpcData)
-            updateDraft({ borrower_id: rpcData })
-          }
-        } catch (finalizeRpcError: any) {
-          console.error('❌ Dev: Finalize draft RPC call failed:', finalizeRpcError)
-          setError('Dev: Finalize draft RPC call failed. Error: ' + finalizeRpcError.message)
-        }
         
         setSuccess('Mobile number verified successfully! Redirecting to offers...')
         setTimeout(() => {
@@ -152,7 +137,6 @@ export function OtpStep() {
         setSuccess('Development: New OTP "123456" sent!')
         setResendKey(prev => prev + 1) // Reset countdown
         setOtp('')
-        setIsResending(false)
         return
       }
 
