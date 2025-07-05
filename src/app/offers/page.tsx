@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { AuthErrorBoundary } from "@/components/AuthErrorBoundary"
+import { OfferDetailsModal } from "@/components/OfferDetailsModal"
 import { supabase } from "@/lib/supabase"
 import { useBorrower } from "@/contexts/BorrowerContext"
 import { useAuth } from "@/hooks/useAuth"
@@ -281,54 +282,71 @@ function OffersPageContent() {
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {offers.map((offer, index) => (
-              <Card key={offer.product_id} className="border-l-4 border-l-green-500 hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <CardTitle className="text-lg text-green-800">
-                        {offer.lender_name}
-                      </CardTitle>
-                      <p className="text-green-700 font-medium text-sm">
-                        {offer.product_name}
-                      </p>
+              <OfferDetailsModal key={offer.product_id} offer={offer}>
+                <Card className="border-l-4 border-l-green-500 hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardHeader className="pb-3">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <CardTitle className="text-lg text-green-800">
+                          {offer.lender_name}
+                        </CardTitle>
+                        <p className="text-green-700 font-medium text-sm">
+                          {offer.product_name}
+                        </p>
+                      </div>
+                      <Badge className="bg-green-100 text-green-800">
+                        #{index + 1}
+                      </Badge>
                     </div>
-                    <Badge className="bg-green-100 text-green-800">
-                      #{index + 1}
-                    </Badge>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-green-800">
-                      {offer.interest_rate_min}%
+                    <div className="text-right">
+                      <div className="text-2xl font-bold text-green-800">
+                        {offer.interest_rate_min}%
+                      </div>
+                      <div className="text-sm text-gray-600">per annum</div>
                     </div>
-                    <div className="text-sm text-gray-600">per annum</div>
-                  </div>
-                </CardHeader>
-                
-                <CardContent className="pt-0">
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <p className="text-gray-600">Loan Amount</p>
-                      <p className="font-semibold">{formatLoanAmount(offer.loan_amount)}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-600">EMI (20 years)</p>
-                      <p className="font-semibold">{formatCurrency(offer.estimated_emi)}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-600">Processing Fee</p>
-                      <p className="font-semibold">{formatCurrency(calculateProcessingFee(offer))}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-600">Max LTV</p>
-                      <p className="font-semibold">{offer.max_ltv_ratio_tier1}%</p>
-                    </div>
-                  </div>
+                  </CardHeader>
                   
-                  <Button className="w-full mt-4 bg-green-600 hover:bg-green-700">
-                    Apply Now
-                  </Button>
-                </CardContent>
-              </Card>
+                  <CardContent className="pt-0">
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <p className="text-gray-600">Loan Amount</p>
+                        <p className="font-semibold">{formatLoanAmount(offer.loan_amount)}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-600">EMI (20 years)</p>
+                        <p className="font-semibold">{formatCurrency(offer.estimated_emi)}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-600">Processing Fee</p>
+                        <p className="font-semibold">{formatCurrency(calculateProcessingFee(offer))}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-600">Max LTV</p>
+                        <p className="font-semibold">{offer.max_ltv_ratio_tier1}%</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex space-x-2 mt-4">
+                      <Button 
+                        className="flex-1 bg-green-600 hover:bg-green-700"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          router.push(`/apply/${offer.product_id}`)
+                        }}
+                      >
+                        Apply Now
+                      </Button>
+                      <Button 
+                        variant="outline"
+                        className="flex-1"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        View Details
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </OfferDetailsModal>
             ))}
           </div>
         )}
