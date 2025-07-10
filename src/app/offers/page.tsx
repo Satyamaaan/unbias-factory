@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -10,18 +10,7 @@ import { supabase } from "@/lib/supabase"
 import { useBorrower } from "@/contexts/BorrowerContext"
 import { useAuth } from "@/hooks/useAuth"
 import { makeAuthenticatedRequest } from "@/lib/auth"
-
-interface Offer {
-  product_id: string
-  lender_name: string
-  product_name: string
-  interest_rate_min: number
-  processing_fee_value: number
-  processing_fee_type: string
-  max_ltv_ratio_tier1: number
-  loan_amount: number
-  estimated_emi: number
-}
+import { Offer } from "@/types/offer"
 
 function OffersPageContent() {
   const router = useRouter()
@@ -54,41 +43,7 @@ function OffersPageContent() {
     }
   }, [draft, authLoading, isAuthenticated, session, authError])
 
-  useEffect(() => {
-    // Only proceed if auth is loaded and we have required data
-    if (authLoading) return
-
-    // Check if user completed onboarding
-    if (!draft.verified || !draft.borrower_id) {
-      router.push('/onboarding')
-      return
-    }
-
-    // Development mode: bypass auth check if we have draft data
-    if (process.env.NODE_ENV === 'development' && draft.verified && draft.borrower_id) {
-      console.log('🚀 Development mode: Bypassing auth check, proceeding to fetch offers')
-      fetchOffers()
-      return
-    }
-
-    // Check authentication
-    if (!isAuthenticated) {
-      if (authError?.retryable && retryCount < maxRetries) {
-        console.log(`Auth error is retryable, attempt ${retryCount + 1}/${maxRetries}`)
-        setRetryCount(prev => prev + 1)
-        setTimeout(() => refreshSession(), 1000 * retryCount) // Exponential backoff
-      } else {
-        router.push('/onboarding')
-      }
-      return
-    }
-
-    // Reset retry count on successful auth
-    setRetryCount(0)
-    fetchOffers()
-  }, [authLoading, isAuthenticated, authError, draft.verified, draft.borrower_id, router, refreshSession, retryCount])
-
-  const fetchOffers = async () => {
+  const fetchOffers = useCallback(async () => {
     if (!draft.borrower_id) return
 
     try {
@@ -160,7 +115,7 @@ function OffersPageContent() {
         throw new Error('Invalid response format from server')
       }
 
-      const validatedOffers = (data.offers || []).filter((offer: any) => {
+      const validatedOffers = (data.offers || []).filter((offer: Offer) => {
         return (
           offer &&
           typeof offer.product_id === 'string' &&
@@ -205,7 +160,41 @@ function OffersPageContent() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [draft.borrower_id, retryCount, maxRetries, router, refreshSession, session])
+
+  useEffect(() => {
+    // Only proceed if auth is loaded and we have required data
+    if (authLoading) return
+
+    // Check if user completed onboarding
+    if (!draft.verified || !draft.borrower_id) {
+      router.push('/onboarding')
+      return
+    }
+
+    // Development mode: bypass auth check if we have draft data
+    if (process.env.NODE_ENV === 'development' && draft.verified && draft.borrower_id) {
+      console.log('🚀 Development mode: Bypassing auth check, proceeding to fetch offers')
+      fetchOffers()
+      return
+    }
+
+    // Check authentication
+    if (!isAuthenticated) {
+      if (authError?.retryable && retryCount < maxRetries) {
+        console.log(`Auth error is retryable, attempt ${retryCount + 1}/${maxRetries}`)
+        setRetryCount(prev => prev + 1)
+        setTimeout(() => refreshSession(), 1000 * retryCount) // Exponential backoff
+      } else {
+        router.push('/onboarding')
+      }
+      return
+    }
+
+    // Reset retry count on successful auth
+    setRetryCount(0)
+    fetchOffers()
+  }, [authLoading, isAuthenticated, authError, draft.verified, draft.borrower_id, router, refreshSession, retryCount, fetchOffers])
 
   const handleRetry = async () => {
     setRetryCount(0)
@@ -340,7 +329,7 @@ function OffersPageContent() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">No Offers Available</h3>
                 <p className="text-gray-600 mb-4">
-                  Unfortunately, we couldn't find any loan offers that match your current profile.
+                  Unfortunately, we couldn&apos;t find any loan offers that match your current profile.
                   This could be due to eligibility criteria or temporary unavailability.
                 </p>
                 <Button onClick={() => router.push('/onboarding')} variant="outline">

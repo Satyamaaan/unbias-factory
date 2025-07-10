@@ -20,7 +20,7 @@ interface DiagnosticTest {
   name: string
   description: string
   status: 'pending' | 'running' | 'passed' | 'failed'
-  result?: any
+  result?: Record<string, unknown>
   error?: string
   duration?: number
 }
@@ -93,7 +93,7 @@ export function AuthDiagnostics({ isOpen, onClose }: AuthDiagnosticsProps) {
       const startTime = Date.now()
       
       try {
-        let result: any
+        let result: Record<string, unknown>
         
         switch (test.name) {
           case 'Session Validation':
@@ -132,17 +132,18 @@ export function AuthDiagnostics({ isOpen, onClose }: AuthDiagnosticsProps) {
         
         logger.info('DIAGNOSTICS', `Test passed: ${test.name}`, { result, duration })
         
-      } catch (error: any) {
+      } catch (error: unknown) {
         const duration = Date.now() - startTime
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error'
         
         testResults.push({
           ...test,
           status: 'failed',
-          error: error.message,
+          error: errorMessage,
           duration
         })
         
-        logger.error('DIAGNOSTICS', `Test failed: ${test.name}`, { error: error.message, duration })
+        logger.error('DIAGNOSTICS', `Test failed: ${test.name}`, { error: errorMessage, duration })
       }
       
       setProgress(((i + 1) / diagnosticTests.length) * 100)
@@ -275,7 +276,7 @@ export function AuthDiagnostics({ isOpen, onClose }: AuthDiagnosticsProps) {
       } catch (error) {
         results.push({
           endpoint,
-          error: error.message,
+          error: error instanceof Error ? error.message : 'Unknown error',
           accessible: false
         })
       }

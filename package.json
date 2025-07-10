@@ -6,7 +6,16 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "analyze": "ANALYZE=true npm run build",
+    "test:db": "node scripts/test-connection.js",
+    "db:migrate": "supabase db push",
+    "db:seed": "node scripts/seed-database.js",
+    "prod:build": "npm run type-check && npm run lint && npm run build",
+    "deploy:functions": "supabase functions deploy",
+    "health": "curl http://localhost:3000/api/health || echo 'Health check failed'"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

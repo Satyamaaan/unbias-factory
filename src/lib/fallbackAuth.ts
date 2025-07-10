@@ -1,5 +1,6 @@
 import { supabase } from './supabase'
 import { logger } from './logger'
+import { Session } from '@supabase/supabase-js'
 
 export interface FallbackAuthOptions {
   maxRetries: number
@@ -11,7 +12,7 @@ export interface FallbackAuthOptions {
 export interface FallbackAuthResult {
   success: boolean
   method: 'primary' | 'retry' | 'anonymous' | 'offline'
-  session?: any
+  session?: Session
   error?: string
   attempts: number
 }
@@ -28,7 +29,7 @@ class FallbackAuthManager {
    * Attempt authentication with multiple fallback strategies
    */
   async authenticateWithFallback(
-    primaryAuthFn: () => Promise<any>,
+    primaryAuthFn: () => Promise<Session | null>,
     options: Partial<FallbackAuthOptions> = {}
   ): Promise<FallbackAuthResult> {
     const opts = { ...this.defaultOptions, ...options }
@@ -53,8 +54,8 @@ class FallbackAuthManager {
           attempts
         }
       }
-    } catch (error: any) {
-      lastError = error.message
+    } catch (error: unknown) {
+      lastError = error instanceof Error ? error.message : 'Unknown error'
       logger.authWarn('Primary authentication failed', { error: lastError, attempt: attempts })
     }
 
@@ -79,8 +80,8 @@ class FallbackAuthManager {
             attempts
           }
         }
-      } catch (error: any) {
-        lastError = error.message
+      } catch (error: unknown) {
+        lastError = error instanceof Error ? error.message : 'Unknown error'
         logger.authWarn(`Retry attempt ${i + 1} failed`, { error: lastError, attempt: attempts })
       }
     }
@@ -102,8 +103,8 @@ class FallbackAuthManager {
             attempts
           }
         }
-      } catch (error: any) {
-        lastError = error.message
+      } catch (error: unknown) {
+        lastError = error instanceof Error ? error.message : 'Unknown error'
         logger.authWarn('Anonymous fallback failed', { error: lastError, attempt: attempts })
       }
     }
@@ -125,8 +126,8 @@ class FallbackAuthManager {
             attempts
           }
         }
-      } catch (error: any) {
-        lastError = error.message
+      } catch (error: unknown) {
+        lastError = error instanceof Error ? error.message : 'Unknown error'
         logger.authWarn('Offline mode fallback failed', { error: lastError, attempt: attempts })
       }
     }
@@ -149,7 +150,7 @@ class FallbackAuthManager {
   /**
    * Create anonymous session for limited functionality
    */
-  private async createAnonymousSession(): Promise<any> {
+  private async createAnonymousSession(): Promise<Session | null> {
     try {
       const { data, error } = await supabase.auth.signInAnonymously()
       
@@ -159,15 +160,9 @@ class FallbackAuthManager {
 
       logger.authInfo('Anonymous session created', { userId: data.user?.id })
       
-      return {
-        user: data.user,
-        access_token: data.session?.access_token,
-        refresh_token: data.session?.refresh_token,
-        expires_at: data.session?.expires_at,
-        isAnonymous: true
-      }
+      return data.session
     } catch (error) {
-      logger.authError('Failed to create anonymous session', { error: error.message })
+      logger.authError('Failed to create anonymous session', { error: error instanceof Error ? error.message : 'Unknown error' })
       throw error
     }
   }
@@ -175,7 +170,7 @@ class FallbackAuthManager {
   /**
    * Create offline session using cached data
    */
-  private async createOfflineSession(): Promise<any> {
+  private async createOfflineSession(): Promise<Session | null> {
     try {
       // Check for cached session data
       const cachedSession = this.getCachedSession()
@@ -206,7 +201,7 @@ class FallbackAuthManager {
       
       return offlineSession
     } catch (error) {
-      logger.authError('Failed to create offline session', { error: error.message })
+      logger.authError('Failed to create offline session', { error: error instanceof Error ? error.message : 'Unknown error' })
       throw error
     }
   }
@@ -214,8 +209,13 @@ class FallbackAuthManager {
   /**
    * Cache session data for offline use
    */
-  cacheSession(session: any): void {
+  cacheSession(session: Session | null): void {
     try {
+      if (!session) {
+        localStorage.removeItem('fallback_session')
+        return
+      }
+      
       const cacheData = {
         user: session.user,
         access_token: session.access_token,
@@ -226,14 +226,14 @@ class FallbackAuthManager {
       localStorage.setItem('cached_session', JSON.stringify(cacheData))
       logger.authDebug('Session cached for offline use', { userId: session.user?.id })
     } catch (error) {
-      logger.authWarn('Failed to cache session', { error: error.message })
+      logger.authWarn('Failed to cache session', { error: error instanceof Error ? error.message : 'Unknown error' })
     }
   }
 
   /**
    * Get cached session data
    */
-  private getCachedSession(): any {
+  private getCachedSession(): Session | null {
     try {
       const cached = localStorage.getItem('cached_session')
       
@@ -246,7 +246,7 @@ class FallbackAuthManager {
       
       return session
     } catch (error) {
-      logger.authWarn('Failed to retrieve cached session', { error: error.message })
+      logger.authWarn('Failed to retrieve cached session', { error: error instanceof Error ? error.message : 'Unknown error' })
       return null
     }
   }
@@ -254,7 +254,7 @@ class FallbackAuthManager {
   /**
    * Check if cached session is still valid
    */
-  private isSessionValid(session: any): boolean {
+  private isSessionValid(session: Session | null): boolean {
     if (!session || !session.expires_at) {
       return false
     }
@@ -279,7 +279,7 @@ class FallbackAuthManager {
       localStorage.removeItem('cached_session')
       logger.authDebug('Session cache cleared')
     } catch (error) {
-      logger.authWarn('Failed to clear session cache', { error: error.message })
+      logger.authWarn('Failed to clear session cache', { error: error instanceof Error ? error.message : 'Unknown error' })
     }
   }
 
@@ -301,7 +301,7 @@ class FallbackAuthManager {
       
       return isOnline
     } catch (error) {
-      logger.authDebug('Connectivity check failed', { error: error.message })
+      logger.authDebug('Connectivity check failed', { error: error instanceof Error ? error.message : 'Unknown error' })
       return false
     }
   }
@@ -320,10 +320,10 @@ class FallbackAuthManager {
     
     let supabaseStatus = false
     try {
-      const { data } = await supabase.auth.getSession()
+      await supabase.auth.getSession()
       supabaseStatus = true
     } catch (error) {
-      logger.authWarn('Supabase auth health check failed', { error: error.message })
+      logger.authWarn('Supabase auth health check failed', { error: error instanceof Error ? error.message : 'Unknown error' })
     }
 
     const health = {
@@ -348,7 +348,7 @@ export const fallbackAuthManager = new FallbackAuthManager()
 
 // Utility functions for common fallback scenarios
 export async function authenticateWithRetry(
-  authFunction: () => Promise<any>,
+  authFunction: () => Promise<Session | null>,
   maxRetries: number = 3
 ): Promise<FallbackAuthResult> {
   return fallbackAuthManager.authenticateWithFallback(authFunction, {

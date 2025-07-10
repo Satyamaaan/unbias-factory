@@ -1,11 +1,29 @@
 // supabase/functions/match_offers/index.ts
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { serve } from "std/http/server.ts"
+import { createClient } from '@supabase/supabase-js'
 
-const corsHeaders = {
+interface CorsHeaders {
+  'Access-Control-Allow-Origin': string
+  'Access-Control-Allow-Headers': string
+  'Access-Control-Allow-Methods': string
+}
+
+const corsHeaders: CorsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
   'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+}
+
+interface RequestBody {
+  borrower_id: string
+}
+
+interface OfferResponse {
+  borrower_id: string
+  offers: any[]
+  count: number
+  generated_at: string
+  user_id: string
 }
 
 // EMI calculation function
@@ -21,7 +39,7 @@ function calculateEMI(principal: number, annualRate: number, tenureYears: number
   return Math.round(emi);
 }
 
-serve(async (req) => {
+serve(async (req: Request) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
   }
@@ -53,7 +71,7 @@ serve(async (req) => {
       )
     }
 
-    const { borrower_id } = await req.json()
+    const { borrower_id }: RequestBody = await req.json()
 
     if (!borrower_id) {
       return new Response(
@@ -102,9 +120,9 @@ serve(async (req) => {
     }
 
     // Enhance offers with EMI calculation
-    const enhancedOffers = offers?.map((offer: any) => {
+    const enhancedOffers = offers?.map((offer: Record<string, unknown>) => {
       const loanAmount = borrower?.loan_amount_required || 0;
-      const emi = calculateEMI(loanAmount, offer.interest_rate_min);
+      const emi = calculateEMI(loanAmount, offer.interest_rate_min as number);
       
       return {
         ...offer,
@@ -114,7 +132,7 @@ serve(async (req) => {
       };
     }) || [];
 
-    const response = {
+    const response: OfferResponse = {
       borrower_id,
       offers: enhancedOffers,
       count: enhancedOffers.length,
@@ -132,7 +150,7 @@ serve(async (req) => {
   } catch (error) {
     console.error('Function error:', error)
     return new Response(
-      JSON.stringify({ error: 'Internal server error', details: error.message }),
+      JSON.stringify({ error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     )
   }

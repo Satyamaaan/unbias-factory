@@ -1,7 +1,7 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -53,17 +53,7 @@ export default function AdminPage() {
   const [isAdmin, setIsAdmin] = useState(false)
   const [adminLoading, setAdminLoading] = useState(true)
 
-  useEffect(() => {
-    checkAdminAccess()
-  }, [])
-
-  useEffect(() => {
-    if (isAdmin) {
-      loadData()
-    }
-  }, [isAdmin])
-
-  const checkAdminAccess = async () => {
+  const checkAdminAccess = useCallback(async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser()
       
@@ -87,9 +77,9 @@ export default function AdminPage() {
     } finally {
       setAdminLoading(false)
     }
-  }
+  }, [router])
 
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     try {
       setLoading(true)
       
@@ -134,7 +124,17 @@ export default function AdminPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
+
+  useEffect(() => {
+    checkAdminAccess()
+  }, [checkAdminAccess])
+
+  useEffect(() => {
+    if (isAdmin) {
+      loadData()
+    }
+  }, [isAdmin, loadData])
 
   const toggleLenderStatus = async (lenderId: string, currentStatus: boolean) => {
     try {

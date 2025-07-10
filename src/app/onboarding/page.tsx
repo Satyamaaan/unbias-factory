@@ -51,11 +51,12 @@ export default function OnboardingPage() {
       }
     } catch (error) {
       console.error('Error rendering step:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
       return (
         <div className="min-h-screen bg-gray-50 py-8">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <h1 className="text-xl font-bold text-red-600">Error loading step {validStep}</h1>
-            <p className="text-red-500">{error.message}</p>
+            <p className="text-red-500">{errorMessage}</p>
             <button 
               onClick={() => clearDraft()}
               className="mt-4 px-4 py-2 bg-red-600 text-white rounded"

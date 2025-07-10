@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -9,6 +9,7 @@ import { supabase } from "@/lib/supabase"
 import { useBorrower } from "@/contexts/BorrowerContext"
 import { useAuth } from "@/hooks/useAuth"
 import { makeAuthenticatedRequest } from "@/lib/auth"
+import { Offer } from "@/types/offer"
 
 interface ApplicationStep {
   id: string
@@ -16,18 +17,6 @@ interface ApplicationStep {
   description: string
   completed: boolean
   required: boolean
-}
-
-interface Offer {
-  product_id: string
-  lender_name: string
-  product_name: string
-  interest_rate_min: number
-  processing_fee_value: number
-  processing_fee_type: string
-  max_ltv_ratio_tier1: number
-  loan_amount: number
-  estimated_emi: number
 }
 
 interface RequiredDocument {
@@ -44,7 +33,7 @@ export default function ApplyPage() {
   const params = useParams()
   const productId = params.productId as string
   const { draft } = useBorrower()
-  const { session, loading: authLoading, isAuthenticated } = useAuth(draft.borrower_id)
+  const { loading: authLoading, isAuthenticated } = useAuth(draft.borrower_id)
   
   const [offer, setOffer] = useState<Offer | null>(null)
   const [loading, setLoading] = useState(true)
@@ -84,19 +73,7 @@ export default function ApplyPage() {
     }
   ]
 
-  useEffect(() => {
-    if (authLoading) return
-    
-    if (!isAuthenticated || !draft.verified || !draft.borrower_id) {
-      router.push('/onboarding')
-      return
-    }
-
-    fetchOfferDetails()
-    initializeDocuments()
-  }, [authLoading, isAuthenticated, draft.verified, draft.borrower_id, productId])
-
-  const fetchOfferDetails = async () => {
+  const fetchOfferDetails = useCallback(async () => {
     try {
       setLoading(true)
       
@@ -128,9 +105,9 @@ export default function ApplyPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [draft.borrower_id, productId])
 
-  const initializeDocuments = () => {
+  const initializeDocuments = useCallback(() => {
     const requiredDocs: RequiredDocument[] = [
       {
         id: 'identity',
@@ -170,7 +147,19 @@ export default function ApplyPage() {
     ]
 
     setDocuments(requiredDocs)
-  }
+  }, [])
+
+  useEffect(() => {
+    if (authLoading) return
+    
+    if (!isAuthenticated || !draft.verified || !draft.borrower_id) {
+      router.push('/onboarding')
+      return
+    }
+
+    fetchOfferDetails()
+    initializeDocuments()
+  }, [authLoading, isAuthenticated, draft.verified, draft.borrower_id, productId, router, fetchOfferDetails, initializeDocuments])
 
   const handleFileUpload = (documentId: string, file: File) => {
     setDocuments((prev: RequiredDocument[]) => prev.map((doc: RequiredDocument) => 
@@ -393,7 +382,7 @@ export default function ApplyPage() {
                     <div className="bg-blue-50 p-4 rounded-lg">
                       <h4 className="font-semibold text-blue-900 mb-2">Important Notes</h4>
                       <ul className="text-sm text-blue-800 space-y-1">
-                        <li>• Interest rate is subject to bank's approval and credit assessment</li>
+                        <li>• Interest rate is subject to bank&apos;s approval and credit assessment</li>
                         <li>• Processing fee is non-refundable</li>
                         <li>• Loan approval depends on document verification</li>
                         <li>• EMI calculation is approximate and may vary</li>
@@ -476,9 +465,9 @@ export default function ApplyPage() {
                       <h4 className="font-semibold text-yellow-900 mb-2">Next Steps</h4>
                       <ul className="text-sm text-yellow-800 space-y-1">
                         <li>• Your application will be reviewed by {offer.lender_name}</li>
-                        <li>• You'll receive updates via SMS and email</li>
+                        <li>• You&apos;ll receive updates via SMS and email</li>
                         <li>• Document verification may take 2-3 business days</li>
-                        <li>• Loan approval depends on bank's credit assessment</li>
+                        <li>• Loan approval depends on bank&apos;s credit assessment</li>
                       </ul>
                     </div>
                   </div>
@@ -505,7 +494,7 @@ export default function ApplyPage() {
                       <h4 className="font-semibold text-green-900 mb-2">What happens next?</h4>
                       <ul className="text-sm text-green-800 space-y-1 text-left">
                         <li>• {offer.lender_name} will review your application</li>
-                        <li>• You'll receive a confirmation email shortly</li>
+                        <li>• You&apos;ll receive a confirmation email shortly</li>
                         <li>• Bank representative may call you for verification</li>
                         <li>• Decision typically takes 3-5 business days</li>
                       </ul>

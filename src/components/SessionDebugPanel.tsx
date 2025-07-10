@@ -58,7 +58,7 @@ export function SessionDebugPanel({ isOpen, onClose }: SessionDebugPanelProps) {
       })
     } catch (error) {
       console.error('Failed to get session info:', error)
-      logger.error('SESSION_DEBUG', 'Failed to refresh session info', { error: error.message })
+      logger.error('SESSION_DEBUG', 'Failed to refresh session info', { error: error instanceof Error ? error.message : 'Unknown error' })
     }
   }
 
@@ -96,7 +96,7 @@ export function SessionDebugPanel({ isOpen, onClose }: SessionDebugPanelProps) {
       logger.authInfo('Auth test completed', { hasSession: !!session })
       refreshSessionInfo()
     } catch (error) {
-      logger.authError('Auth test failed', { error: error.message })
+      logger.authError('Auth test failed', { error: error instanceof Error ? error.message : 'Unknown error' })
     }
   }
 
@@ -105,7 +105,7 @@ export function SessionDebugPanel({ isOpen, onClose }: SessionDebugPanelProps) {
     try {
       throw new Error('Simulated authentication error for debugging')
     } catch (error) {
-      logger.authError('Simulated auth error', { error: error.message, simulated: true })
+      logger.authError('Simulated auth error', { error: error instanceof Error ? error.message : 'Unknown error', simulated: true })
     }
   }
 
@@ -115,7 +115,7 @@ export function SessionDebugPanel({ isOpen, onClose }: SessionDebugPanelProps) {
       await authManager.signOut()
       refreshSessionInfo()
     } catch (error) {
-      logger.authError('Failed to clear session', { error: error.message })
+      logger.authError('Failed to clear session', { error: error instanceof Error ? error.message : 'Unknown error' })
     }
   }
 
@@ -191,7 +191,7 @@ export function SessionDebugPanel({ isOpen, onClose }: SessionDebugPanelProps) {
                       )}
                       {error && (
                         <div className="text-red-600 text-xs">
-                          Error: {error.message}
+                          Error: {error instanceof Error ? error.message : 'Unknown error'}
                         </div>
                       )}
                     </CardContent>
@@ -284,7 +284,7 @@ export function SessionDebugPanel({ isOpen, onClose }: SessionDebugPanelProps) {
                           logger.authInfo('Token refresh test completed')
                           refreshSessionInfo()
                         } catch (error) {
-                          logger.authError('Token refresh test failed', { error: error.message })
+                          logger.authError('Token refresh test failed', { error: error instanceof Error ? error.message : 'Unknown error' })
                         }
                       }}>
                         🔄 Test Token Refresh
@@ -295,7 +295,7 @@ export function SessionDebugPanel({ isOpen, onClose }: SessionDebugPanelProps) {
                           const result = await authManager.validateSession(draft.borrower_id)
                           logger.authInfo('Validation test completed', result)
                         } catch (error) {
-                          logger.authError('Validation test failed', { error: error.message })
+                          logger.authError('Validation test failed', { error: error instanceof Error ? error.message : 'Unknown error' })
                         }
                       }}>
                         👤 Test User Validation
