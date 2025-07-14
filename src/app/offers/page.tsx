@@ -1,26 +1,16 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { AuthErrorBoundary } from "@/components/AuthErrorBoundary"
+import { OfferDetailsModal } from "@/components/OfferDetailsModal"
 import { supabase } from "@/lib/supabase"
 import { useBorrower } from "@/contexts/BorrowerContext"
 import { useAuth } from "@/hooks/useAuth"
 import { makeAuthenticatedRequest } from "@/lib/auth"
-
-interface Offer {
-  product_id: string
-  lender_name: string
-  product_name: string
-  interest_rate_min: number
-  processing_fee_value: number
-  processing_fee_type: string
-  max_ltv_ratio_tier1: number
-  loan_amount: number
-  estimated_emi: number
-}
+import { Offer } from "@/types/offer"
 
 function OffersPageContent() {
   const router = useRouter()
@@ -30,41 +20,77 @@ function OffersPageContent() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [retryCount, setRetryCount] = useState(0)
+  const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null)
   const maxRetries = 3
 
+  // Debug logging for development
   useEffect(() => {
-    // Only proceed if auth is loaded and we have required data
-    if (authLoading) return
-
-    // Check if user completed onboarding
-    if (!draft.verified || !draft.borrower_id) {
-      router.push('/onboarding')
-      return
+    if (process.env.NODE_ENV === 'development') {
+      console.log('🔍 Offers page debug:', {
+        draft: {
+          verified: draft.verified,
+          borrower_id: draft.borrower_id,
+          user_id: draft.user_id,
+          mobile: draft.mobile
+        },
+        auth: {
+          loading: authLoading,
+          authenticated: isAuthenticated,
+          hasSession: !!session,
+          error: authError?.message
+        }
+      })
     }
+  }, [draft, authLoading, isAuthenticated, session, authError])
 
-    // Check authentication
-    if (!isAuthenticated) {
-      if (authError?.retryable && retryCount < maxRetries) {
-        console.log(`Auth error is retryable, attempt ${retryCount + 1}/${maxRetries}`)
-        setRetryCount(prev => prev + 1)
-        setTimeout(() => refreshSession(), 1000 * retryCount) // Exponential backoff
-      } else {
-        router.push('/onboarding')
-      }
-      return
-    }
-
-    // Reset retry count on successful auth
-    setRetryCount(0)
-    fetchOffers()
-  }, [authLoading, isAuthenticated, authError, draft.verified, draft.borrower_id, router, refreshSession, retryCount])
-
-  const fetchOffers = async () => {
-    if (!draft.borrower_id || !session) return
+  const fetchOffers = useCallback(async () => {
+    if (!draft.borrower_id) return
 
     try {
       setLoading(true)
       setError('')
+
+      // Development mode: simulate offers without auth
+      if (process.env.NODE_ENV === 'development') {
+        console.log('🚀 Development mode: Simulating offers fetch')
+        
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1500))
+        
+        const mockOffers = [
+          {
+            product_id: 'dev-offer-1',
+            lender_name: 'Dev Bank A',
+            product_name: 'Dev Home Loan Premium',
+            interest_rate_min: 8.5,
+            processing_fee_value: 0.5,
+            processing_fee_type: 'Percentage',
+            max_ltv_ratio_tier1: 80,
+            loan_amount: 5000000,
+            estimated_emi: 41000
+          },
+          {
+            product_id: 'dev-offer-2',
+            lender_name: 'Dev Bank B',
+            product_name: 'Dev Home Loan Basic',
+            interest_rate_min: 9.2,
+            processing_fee_value: 25000,
+            processing_fee_type: 'Fixed',
+            max_ltv_ratio_tier1: 75,
+            loan_amount: 4500000,
+            estimated_emi: 38500
+          }
+        ]
+        
+        setOffers(mockOffers)
+        console.log(`✅ Development mode: Loaded ${mockOffers.length} mock offers`)
+        return
+      }
+
+      // Production mode: use authenticated request
+      if (!session) {
+        throw new Error('No valid session available')
+      }
 
       const data = await makeAuthenticatedRequest(
         async (authSession) => {
@@ -89,7 +115,7 @@ function OffersPageContent() {
         throw new Error('Invalid response format from server')
       }
 
-      const validatedOffers = (data.offers || []).filter((offer: any) => {
+      const validatedOffers = (data.offers || []).filter((offer: Offer) => {
         return (
           offer &&
           typeof offer.product_id === 'string' &&
@@ -134,7 +160,41 @@ function OffersPageContent() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [draft.borrower_id, retryCount, maxRetries, router, refreshSession, session])
+
+  useEffect(() => {
+    // Only proceed if auth is loaded and we have required data
+    if (authLoading) return
+
+    // Check if user completed onboarding
+    if (!draft.verified || !draft.borrower_id) {
+      router.push('/onboarding')
+      return
+    }
+
+    // Development mode: bypass auth check if we have draft data
+    if (process.env.NODE_ENV === 'development' && draft.verified && draft.borrower_id) {
+      console.log('🚀 Development mode: Bypassing auth check, proceeding to fetch offers')
+      fetchOffers()
+      return
+    }
+
+    // Check authentication
+    if (!isAuthenticated) {
+      if (authError?.retryable && retryCount < maxRetries) {
+        console.log(`Auth error is retryable, attempt ${retryCount + 1}/${maxRetries}`)
+        setRetryCount(prev => prev + 1)
+        setTimeout(() => refreshSession(), 1000 * retryCount) // Exponential backoff
+      } else {
+        router.push('/onboarding')
+      }
+      return
+    }
+
+    // Reset retry count on successful auth
+    setRetryCount(0)
+    fetchOffers()
+  }, [authLoading, isAuthenticated, authError, draft.verified, draft.borrower_id, router, refreshSession, retryCount, fetchOffers])
 
   const handleRetry = async () => {
     setRetryCount(0)
@@ -260,81 +320,8 @@ function OffersPageContent() {
           </div>
         </div>
 
-        {offers.length === 0 ? (
-          <Card className="max-w-2xl mx-auto">
-            <CardContent className="p-8 text-center">
-              <div className="mb-4">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">⚠️</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">No Offers Available</h3>
-                <p className="text-gray-600 mb-4">
-                  Unfortunately, we couldn't find any loan offers that match your current profile.
-                  This could be due to eligibility criteria or temporary unavailability.
-                </p>
-                <Button onClick={() => router.push('/onboarding')} variant="outline">
-                  Update Application
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {offers.map((offer, index) => (
-              <Card key={offer.product_id} className="border-l-4 border-l-green-500 hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <CardTitle className="text-lg text-green-800">
-                        {offer.lender_name}
-                      </CardTitle>
-                      <p className="text-green-700 font-medium text-sm">
-                        {offer.product_name}
-                      </p>
-                    </div>
-                    <Badge className="bg-green-100 text-green-800">
-                      #{index + 1}
-                    </Badge>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-green-800">
-                      {offer.interest_rate_min}%
-                    </div>
-                    <div className="text-sm text-gray-600">per annum</div>
-                  </div>
-                </CardHeader>
-                
-                <CardContent className="pt-0">
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <p className="text-gray-600">Loan Amount</p>
-                      <p className="font-semibold">{formatLoanAmount(offer.loan_amount)}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-600">EMI (20 years)</p>
-                      <p className="font-semibold">{formatCurrency(offer.estimated_emi)}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-600">Processing Fee</p>
-                      <p className="font-semibold">{formatCurrency(calculateProcessingFee(offer))}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-600">Max LTV</p>
-                      <p className="font-semibold">{offer.max_ltv_ratio_tier1}%</p>
-                    </div>
-                  </div>
-                  
-                  <Button className="w-full mt-4 bg-green-600 hover:bg-green-700">
-                    Apply Now
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
-
-        {/* Application Summary */}
-        <Card className="mt-8 max-w-2xl mx-auto">
+        {/* Application Summary - Moved to top */}
+        <Card className="mb-8 max-w-2xl mx-auto">
           <CardHeader>
             <CardTitle className="text-lg">Your Application Details</CardTitle>
           </CardHeader>
@@ -367,7 +354,110 @@ function OffersPageContent() {
             </div>
           </CardContent>
         </Card>
+
+        {offers.length === 0 ? (
+          <Card className="max-w-2xl mx-auto">
+            <CardContent className="p-8 text-center">
+              <div className="mb-4">
+                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">⚠️</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">No Offers Available</h3>
+                <p className="text-gray-600 mb-4">
+                  Unfortunately, we couldn&apos;t find any loan offers that match your current profile.
+                  This could be due to eligibility criteria or temporary unavailability.
+                </p>
+                <Button onClick={() => router.push('/onboarding')} variant="outline">
+                  Update Application
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+          <div className="grid gap-6 grid-cols-1 max-w-2xl mx-auto">
+            {offers.map((offer, index) => (
+              <Card 
+                key={offer.product_id} 
+                className="border-l-4 border-l-green-500 hover:shadow-lg transition-shadow cursor-pointer"
+                onClick={() => setSelectedOffer(offer)}
+              >
+                <CardHeader className="pb-3">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <CardTitle className="text-lg text-green-800">
+                        {offer.lender_name}
+                      </CardTitle>
+                      <p className="text-green-700 font-medium text-sm">
+                        {offer.product_name}
+                      </p>
+                    </div>
+                    <Badge className="bg-green-100 text-green-800">
+                      #{index + 1}
+                    </Badge>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-green-800">
+                      {offer.interest_rate_min}%
+                    </div>
+                    <div className="text-sm text-gray-600">per annum</div>
+                  </div>
+                </CardHeader>
+                
+                <CardContent className="pt-0">
+                  <div className="grid grid-cols-4 gap-4 text-sm mb-4">
+                    <div>
+                      <p className="text-gray-600 text-xs">Loan Amount</p>
+                      <p className="font-semibold">{formatLoanAmount(offer.loan_amount)}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-600 text-xs">EMI (20 years)</p>
+                      <p className="font-semibold">{formatCurrency(offer.estimated_emi)}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-600 text-xs">Processing Fee</p>
+                      <p className="font-semibold">{formatCurrency(calculateProcessingFee(offer))}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-600 text-xs">Max LTV</p>
+                      <p className="font-semibold">{offer.max_ltv_ratio_tier1}%</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex space-x-2">
+                    <Button 
+                      className="flex-1 bg-green-600 hover:bg-green-700"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        router.push(`/apply/${offer.product_id}`)
+                      }}
+                    >
+                      Apply Now
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      className="flex-1"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setSelectedOffer(offer)
+                      }}
+                    >
+                      View Details
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
+
+      {/* Single Modal for Offer Details */}
+      {selectedOffer && (
+        <OfferDetailsModal 
+          offer={selectedOffer} 
+          onClose={() => setSelectedOffer(null)}
+        />
+      )}
     </div>
   )
 }

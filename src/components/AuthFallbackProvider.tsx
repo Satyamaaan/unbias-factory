@@ -69,7 +69,7 @@ export function AuthFallbackProvider({
       setAuthHealth(health)
       logger.authDebug('Auth health updated', health)
     } catch (error) {
-      logger.authError('Auth health check failed', { error: error.message })
+      logger.authError('Auth health check failed', { error: error instanceof Error ? error.message : 'Unknown error' })
     }
   }
 
@@ -100,7 +100,7 @@ export function AuthFallbackProvider({
         await checkAuthHealth()
       }
     } catch (error) {
-      logger.authError('Manual retry failed', { error: error.message })
+      logger.authError('Manual retry failed', { error: error instanceof Error ? error.message : 'Unknown error' })
     }
   }
 

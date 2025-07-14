@@ -10,7 +10,7 @@ interface LogEntry {
   level: keyof LogLevel
   category: string
   message: string
-  data?: any
+  data?: Record<string, unknown>
   userId?: string
   sessionId?: string
   source?: string
@@ -69,7 +69,7 @@ class Logger {
     level: keyof LogLevel,
     category: string,
     message: string,
-    data?: any,
+    data?: Record<string, unknown>,
     userId?: string,
     sessionId?: string,
     source?: string
@@ -161,7 +161,7 @@ class Logger {
       // Only persist recent logs to avoid localStorage bloat
       const recentLogs = this.logs.slice(-500)
       localStorage.setItem('app_logs', JSON.stringify(recentLogs))
-    } catch (error) {
+    } catch {
       // Silently fail if localStorage is not available
     }
   }
@@ -175,7 +175,7 @@ class Logger {
           this.logs = parsedLogs
         }
       }
-    } catch (error) {
+    } catch {
       // Silently fail if localStorage is not available or data is corrupted
     }
   }
@@ -191,7 +191,7 @@ class Logger {
         },
         body: JSON.stringify(entry)
       })
-    } catch (error) {
+    } catch {
       // Silently fail for remote logging to avoid infinite loops
     }
   }
@@ -208,72 +208,72 @@ class Logger {
   }
 
   // Public logging methods
-  debug(category: string, message: string, data?: any, userId?: string, sessionId?: string) {
+  debug(category: string, message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     if (!this.shouldLog('DEBUG')) return
     this.addLog(this.createLogEntry('DEBUG', category, message, data, userId, sessionId))
   }
 
-  info(category: string, message: string, data?: any, userId?: string, sessionId?: string) {
+  info(category: string, message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     if (!this.shouldLog('INFO')) return
     this.addLog(this.createLogEntry('INFO', category, message, data, userId, sessionId))
   }
 
-  warn(category: string, message: string, data?: any, userId?: string, sessionId?: string) {
+  warn(category: string, message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     if (!this.shouldLog('WARN')) return
     this.addLog(this.createLogEntry('WARN', category, message, data, userId, sessionId))
   }
 
-  error(category: string, message: string, data?: any, userId?: string, sessionId?: string) {
+  error(category: string, message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     if (!this.shouldLog('ERROR')) return
     this.addLog(this.createLogEntry('ERROR', category, message, data, userId, sessionId))
   }
 
   // Specialized logging methods
-  authDebug(message: string, data?: any, userId?: string, sessionId?: string) {
+  authDebug(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.debug('AUTH', message, data, userId, sessionId)
   }
 
-  authInfo(message: string, data?: any, userId?: string, sessionId?: string) {
+  authInfo(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.info('AUTH', message, data, userId, sessionId)
   }
 
-  authWarn(message: string, data?: any, userId?: string, sessionId?: string) {
+  authWarn(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.warn('AUTH', message, data, userId, sessionId)
   }
 
-  authError(message: string, data?: any, userId?: string, sessionId?: string) {
+  authError(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.error('AUTH', message, data, userId, sessionId)
   }
 
-  apiDebug(message: string, data?: any, userId?: string, sessionId?: string) {
+  apiDebug(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.debug('API', message, data, userId, sessionId)
   }
 
-  apiInfo(message: string, data?: any, userId?: string, sessionId?: string) {
+  apiInfo(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.info('API', message, data, userId, sessionId)
   }
 
-  apiWarn(message: string, data?: any, userId?: string, sessionId?: string) {
+  apiWarn(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.warn('API', message, data, userId, sessionId)
   }
 
-  apiError(message: string, data?: any, userId?: string, sessionId?: string) {
+  apiError(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.error('API', message, data, userId, sessionId)
   }
 
-  uiDebug(message: string, data?: any, userId?: string, sessionId?: string) {
+  uiDebug(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.debug('UI', message, data, userId, sessionId)
   }
 
-  uiInfo(message: string, data?: any, userId?: string, sessionId?: string) {
+  uiInfo(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.info('UI', message, data, userId, sessionId)
   }
 
-  uiWarn(message: string, data?: any, userId?: string, sessionId?: string) {
+  uiWarn(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.warn('UI', message, data, userId, sessionId)
   }
 
-  uiError(message: string, data?: any, userId?: string, sessionId?: string) {
+  uiError(message: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
     this.error('UI', message, data, userId, sessionId)
   }
 
@@ -388,7 +388,7 @@ class Logger {
       lastActivity: lastLog?.timestamp || 'No activity',
       categories: [...new Set(sessionLogs.map(log => log.category))],
       duration,
-      correlationIds: [...new Set(sessionLogs.map(log => log.correlationId).filter(Boolean))]
+      correlationIds: [...new Set(sessionLogs.map(log => log.correlationId).filter((id): id is string => Boolean(id)))]
     }
   }
 
@@ -400,7 +400,7 @@ class Logger {
     lastSeen: string
   } {
     const userLogs = this.logs.filter(log => log.userId === userId)
-    const sessions = new Set(userLogs.map(log => log.sessionId).filter(Boolean))
+    const sessions = new Set(userLogs.map(log => log.sessionId).filter((id): id is string => Boolean(id)))
     
     const categoryCount = userLogs.reduce((acc, log) => {
       acc[log.category] = (acc[log.category] || 0) + 1
@@ -471,15 +471,15 @@ export const logger = new Logger()
 export type { LogEntry, LoggerConfig }
 
 // Utility functions for common logging patterns
-export function logAuthFlow(step: string, data?: any, userId?: string, sessionId?: string) {
+export function logAuthFlow(step: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
   logger.authInfo(`Auth flow: ${step}`, data, userId, sessionId)
 }
 
-export function logApiCall(endpoint: string, method: string, data?: any, userId?: string, sessionId?: string) {
+export function logApiCall(endpoint: string, method: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
   logger.apiInfo(`${method} ${endpoint}`, data, userId, sessionId)
 }
 
-export function logError(category: string, error: Error, context?: any, userId?: string, sessionId?: string) {
+export function logError(category: string, error: Error, context?: Record<string, unknown>, userId?: string, sessionId?: string) {
   logger.error(category, error.message, {
     error: {
       name: error.name,
@@ -490,20 +490,20 @@ export function logError(category: string, error: Error, context?: any, userId?:
   }, userId, sessionId)
 }
 
-export function logPerformance(operation: string, duration: number, data?: any, userId?: string, sessionId?: string) {
+export function logPerformance(operation: string, duration: number, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
   logger.info('PERFORMANCE', `${operation} completed in ${duration}ms`, data, userId, sessionId)
 }
 
-export function logUserAction(action: string, data?: any, userId?: string, sessionId?: string) {
+export function logUserAction(action: string, data?: Record<string, unknown>, userId?: string, sessionId?: string) {
   logger.uiInfo(`User action: ${action}`, data, userId, sessionId)
 }
 
-export function withLogging<T extends (...args: any[]) => any>(
+export function withLogging<T extends (...args: unknown[]) => unknown>(
   fn: T,
   category: string,
   operation: string
 ): T {
-  return ((...args: any[]) => {
+  return ((...args: unknown[]) => {
     const timer = logger.startTimer(`${category}:${operation}`)
     try {
       const result = fn(...args)
@@ -524,9 +524,9 @@ export function withLogging<T extends (...args: any[]) => any>(
         logger.debug(category, `${operation} completed successfully`)
         return result
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       timer()
-      logger.error(category, `${operation} failed`, { error: error.message })
+      logger.error(category, `${operation} failed`, { error: error instanceof Error ? error.message : 'Unknown error' })
       throw error
     }
   }) as T

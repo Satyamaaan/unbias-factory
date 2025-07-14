@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { WizardLayout } from "@/components/WizardLayout"
-import { Button } from "@/components/ui/button"
 import { MobileInput } from "@/components/MobileInput"
 import { supabase } from "@/lib/supabase"
 import { useBorrower } from "@/contexts/BorrowerContext"
@@ -99,7 +98,7 @@ export function ContactStep() {
   return (
     <WizardLayout
       title="Verify Your Mobile Number"
-      description="We'll send you a verification code to confirm your mobile number"
+      description="We&apos;ll send you a verification code to confirm your mobile number"
       onNext={handleSendOtp}
       onBack={prevStep}
       nextLabel={isSendingOtp ? "Sending OTP..." : "Send Verification Code"}
@@ -120,7 +119,7 @@ export function ContactStep() {
         {process.env.NODE_ENV === 'development' && (
           <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
             <p className="text-xs text-blue-700">
-              <strong>For testing:</strong> Use any valid format number - you'll receive OTP: <code>123456</code>
+              <strong>For testing:</strong> Use any valid format number - you&apos;ll receive OTP: <code>123456</code>
             </p>
           </div>
         )}

@@ -6,8 +6,25 @@ import { supabase } from "@/lib/supabase"
 import { useState } from "react"
 import Link from "next/link"
 
+interface LoanOffer {
+  lender_name: string
+  product_name: string
+  interest_rate: number
+  loan_amount?: number
+  estimated_emi?: number
+  processing_fee?: number
+  max_ltv: number
+}
+
+interface OffersResponse {
+  count: number
+  offers?: LoanOffer[]
+  error?: string
+  label?: string
+}
+
 export default function Home() {
-  const [offers, setOffers] = useState<any>(null)
+  const [offers, setOffers] = useState<OffersResponse | null>(null)
   const [loading, setLoading] = useState(false)
 
   const testMatchOffers = async (borrowerId: string, label: string) => {
@@ -21,7 +38,8 @@ export default function Home() {
       setOffers({ ...data, label })
     } catch (error) {
       console.error('Error:', error)
-      setOffers({ error: error.message, label })
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
+      setOffers({ error: errorMessage, label, count: 0 })
     } finally {
       setLoading(false)
     }
@@ -146,7 +164,7 @@ export default function Home() {
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    {offers.offers?.map((offer: any, i: number) => (
+                    {offers.offers?.map((offer: LoanOffer, i: number) => (
                       <Card key={i} className="border-l-4 border-l-green-500">
                         <CardContent className="p-4">
                           <div className="flex justify-between items-start mb-3">

@@ -65,7 +65,13 @@ export function useAuth(requiredUserId?: string): UseAuthReturn {
         )
         
         if (fallbackResult.success && fallbackResult.session) {
-          newSession = fallbackResult.session
+          // Convert Session to AuthSession if needed
+          newSession = {
+            user: fallbackResult.session.user,
+            access_token: fallbackResult.session.access_token,
+            refresh_token: fallbackResult.session.refresh_token || '',
+            expires_at: fallbackResult.session.expires_at || 0
+          }
           logger.authInfo('Fallback authentication successful', { 
             method: fallbackResult.method,
             attempts: fallbackResult.attempts 
@@ -141,8 +147,14 @@ export function useAuth(requiredUserId?: string): UseAuthReturn {
         setSession(validSession)
         setRetryCount(0)
         
-        // Cache session for offline use
-        fallbackAuthManager.cacheSession(validSession)
+        // Cache session for offline use - convert AuthSession to Session
+        const sessionForCache = {
+          user: validSession.user,
+          access_token: validSession.access_token,
+          refresh_token: validSession.refresh_token,
+          expires_at: validSession.expires_at
+        }
+        fallbackAuthManager.cacheSession(sessionForCache)
         
         logger.authInfo('Session validation successful', { 
           userId: validSession.user?.id,
