@@ -137,6 +137,7 @@ export function OtpStep() {
         setSuccess('Development: New OTP "123456" sent!')
         setResendKey(prev => prev + 1) // Reset countdown
         setOtp('')
+        setIsResending(false)
         return
       }
 
