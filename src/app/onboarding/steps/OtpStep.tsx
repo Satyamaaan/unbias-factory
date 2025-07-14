@@ -1,7 +1,6 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { WizardLayout } from "@/components/WizardLayout"
-import { Button } from "@/components/ui/button"
 import { OtpInput } from "@/components/OtpInput"
 import { OtpCountdown } from "@/components/OtpCountdown"
 import { supabase } from "@/lib/supabase"
@@ -9,7 +8,7 @@ import { useBorrower } from "@/contexts/BorrowerContext"
 import { useRouter } from 'next/navigation'
 
 export function OtpStep() {
-  const { draft, updateDraft, nextStep, prevStep } = useBorrower()
+  const { draft, updateDraft, prevStep } = useBorrower()
   const router = useRouter()
   const [otp, setOtp] = useState('')
   const [isVerifying, setIsVerifying] = useState(false)
@@ -35,21 +34,41 @@ export function OtpStep() {
         
         // Generate a valid UUID for development mode
         const mockUserId = crypto.randomUUID()
-        const mockBorrowerId = crypto.randomUUID()
         
         console.log('✅ Dev: Mock user created:', mockUserId)
-        console.log('✅ Dev: Mock borrower ID:', mockBorrowerId)
         
         updateDraft({ 
           verified: true,
-          user_id: mockUserId,
-          borrower_id: mockBorrowerId
+          user_id: mockUserId
         })
         
-        setSuccess('Mobile number verified successfully! Redirecting to offers...')
-        setTimeout(() => {
-          router.push('/offers')
-        }, 2000)
+        // Create real borrower record in database even in development mode
+        try {
+          console.log('Dev: Calling finalize_draft with:', { draft_data: draft, auth_user_id: mockUserId })
+          const { data: rpcData, error: finalizeError } = await supabase
+            .rpc('finalize_draft', {
+              draft_data: draft,
+              auth_user_id: mockUserId
+            })
+          
+          if (finalizeError) {
+            throw finalizeError
+          }
+          
+          console.log('✅ Dev: Draft finalized with borrower ID:', rpcData)
+          updateDraft({ borrower_id: rpcData })
+          setSuccess('Mobile number verified successfully! Redirecting to offers...')
+          
+          setTimeout(() => {
+            router.push('/offers')
+          }, 2000)
+
+        } catch (finalizeRpcError: any) {
+          console.error('❌ Dev: Failed to finalize draft:', finalizeRpcError)
+          setError('Development verification successful, but failed to save your application data. Please try again or contact support. Error: ' + finalizeRpcError.message)
+          return
+        }
+        
         return
       }
       
