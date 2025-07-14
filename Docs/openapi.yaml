@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  title: Unbias Lending API
+  version: '1.0.0'
+  description: |
+    API reference for Unbias Lending Edge Functions (Supabase). This spec is suitable for bump.sh and can be expanded as new endpoints are added.
+servers:
+  - url: https://<your-supabase-project>.functions.supabase.co
+    description: Supabase Edge Functions base URL
+paths:
+  /functions/v1/match_offers:
+    post:
+      summary: Get eligible home loan offers for a borrower
+      description: |
+        Returns a list of eligible home loan products for a given borrower, sorted by interest rate and processing fee.
+      operationId: matchOffers
+      tags:
+        - Offers
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - borrower_id
+              properties:
+                borrower_id:
+                  type: string
+                  format: uuid
+                  description: Unique identifier for the borrower
+      responses:
+        '200':
+          description: List of eligible offers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borrower_id:
+                    type: string
+                    format: uuid
+                  offers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Offer'
+                  count:
+                    type: integer
+                  generated_at:
+                    type: string
+                    format: date-time
+                  user_id:
+                    type: string
+                    format: uuid
+        '400':
+          description: Invalid request or error from backend
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '401':
+          description: Unauthorized (missing or invalid token)
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Offer:
+      type: object
+      properties:
+        product_id:
+          type: string
+        lender_name:
+          type: string
+        product_name:
+          type: string
+        interest_rate_min:
+          type: number
+          format: float
+        processing_fee_value:
+          type: number
+          format: float
+        processing_fee_type:
+          type: string
+        max_ltv_ratio_tier1:
+          type: number
+          format: float
+        loan_amount:
+          type: number
+          format: float
+        estimated_emi:
+          type: number
+          format: float
+        target_borrower_segment:
+          type: array
+          items:
+            type: string
+        min_loan_amount:
+          type: number
+          format: float
+        max_loan_amount:
+          type: number
+          format: float 
