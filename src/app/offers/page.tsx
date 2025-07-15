@@ -8,6 +8,7 @@ import { AuthErrorBoundary } from "@/components/AuthErrorBoundary"
 import { OfferDetailsModal } from "@/components/OfferDetailsModal"
 import { supabase } from "@/lib/supabase"
 import { useBorrower } from "@/contexts/BorrowerContext"
+import { clientRateLimiter, apiRateLimits } from "@/lib/rateLimiter"
 import { useAuth } from "@/hooks/useAuth"
 import { makeAuthenticatedRequest } from "@/lib/auth"
 import { Offer } from "@/types/offer"
@@ -50,40 +51,16 @@ function OffersPageContent() {
       setLoading(true)
       setError('')
 
-      // Development mode: simulate offers without auth
-      if (process.env.NODE_ENV === 'development') {
-        console.log('🚀 Development mode: Simulating offers fetch')
-        
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1500))
-        
-        const mockOffers = [
-          {
-            product_id: 'dev-offer-1',
-            lender_name: 'Dev Bank A',
-            product_name: 'Dev Home Loan Premium',
-            interest_rate_min: 8.5,
-            processing_fee_value: 0.5,
-            processing_fee_type: 'Percentage',
-            max_ltv_ratio_tier1: 80,
-            loan_amount: 5000000,
-            estimated_emi: 41000
-          },
-          {
-            product_id: 'dev-offer-2',
-            lender_name: 'Dev Bank B',
-            product_name: 'Dev Home Loan Basic',
-            interest_rate_min: 9.2,
-            processing_fee_value: 25000,
-            processing_fee_type: 'Fixed',
-            max_ltv_ratio_tier1: 75,
-            loan_amount: 4500000,
-            estimated_emi: 38500
-          }
-        ]
-        
-        setOffers(mockOffers)
-        console.log(`✅ Development mode: Loaded ${mockOffers.length} mock offers`)
+      // Check rate limit
+      const rateLimit = clientRateLimiter.checkLimit(
+        apiRateLimits.offers.identifier,
+        apiRateLimits.offers.maxRequests,
+        apiRateLimits.offers.windowMs
+      )
+
+      if (!rateLimit.allowed) {
+        setError(`Too many requests. Please wait ${Math.ceil((rateLimit.resetTime - Date.now()) / 1000)} seconds.`)
+        setLoading(false)
         return
       }
 

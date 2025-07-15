@@ -6,6 +6,7 @@ import { OtpCountdown } from "@/components/OtpCountdown"
 import { supabase } from "@/lib/supabase"
 import { useBorrower } from "@/contexts/BorrowerContext"
 import { useRouter } from 'next/navigation'
+import { clientRateLimiter, otpRateLimits } from "@/lib/rateLimiter"
 
 export function OtpStep() {
   const { draft, updateDraft, prevStep } = useBorrower()
@@ -28,50 +29,19 @@ export function OtpStep() {
     setSuccess('')
 
     try {
-      // Development mode simulation
-      if (process.env.NODE_ENV === 'development' && otp === '123456') {
-        console.log('🚀 Development mode: OTP verified successfully')
-        
-        // Generate a valid UUID for development mode
-        const mockUserId = crypto.randomUUID()
-        
-        console.log('✅ Dev: Mock user created:', mockUserId)
-        
-        updateDraft({ 
-          verified: true,
-          user_id: mockUserId
-        })
-        
-        // Create real borrower record in database even in development mode
-        try {
-          console.log('Dev: Calling finalize_draft with:', { draft_data: draft, auth_user_id: mockUserId })
-          const { data: rpcData, error: finalizeError } = await supabase
-            .rpc('finalize_draft', {
-              draft_data: draft,
-              auth_user_id: mockUserId
-            })
-          
-          if (finalizeError) {
-            throw finalizeError
-          }
-          
-          console.log('✅ Dev: Draft finalized with borrower ID:', rpcData)
-          updateDraft({ borrower_id: rpcData })
-          setSuccess('Mobile number verified successfully! Redirecting to offers...')
-          
-          setTimeout(() => {
-            router.push('/offers')
-          }, 2000)
+      // Check rate limit before verification
+      const rateLimit = clientRateLimiter.checkLimit(
+        otpRateLimits.verify.identifier,
+        otpRateLimits.verify.maxRequests,
+        otpRateLimits.verify.windowMs
+      )
 
-        } catch (finalizeRpcError: any) {
-          console.error('❌ Dev: Failed to finalize draft:', finalizeRpcError)
-          setError('Development verification successful, but failed to save your application data. Please try again or contact support. Error: ' + finalizeRpcError.message)
-          return
-        }
-        
+      if (!rateLimit.allowed) {
+        setError(`Too many verification attempts. Please wait ${Math.ceil((rateLimit.resetTime - Date.now()) / 1000)} seconds.`)
+        setIsVerifying(false)
         return
       }
-      
+
       // Production: Real Supabase verification
       const countryCode = draft.country_code || '+91'
       const phone = `${countryCode}${draft.mobile}`
@@ -145,21 +115,23 @@ export function OtpStep() {
     setSuccess('')
 
     try {
-      const countryCode = draft.country_code || '+91'
-      const phone = `${countryCode}${draft.mobile}`
-      console.log('Resending OTP to:', phone)
-      
-      // Development mode simulation for resend
-      if (process.env.NODE_ENV === 'development') {
-        console.log('🚀 Development mode: Simulating OTP resend to', phone)
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        setSuccess('Development: New OTP "123456" sent!')
-        setResendKey(prev => prev + 1) // Reset countdown
-        setOtp('')
+      // Check rate limit before resending
+      const rateLimit = clientRateLimiter.checkLimit(
+        otpRateLimits.resend.identifier,
+        otpRateLimits.resend.maxRequests,
+        otpRateLimits.resend.windowMs
+      )
+
+      if (!rateLimit.allowed) {
+        setError(`Too many resend attempts. Please wait ${Math.ceil((rateLimit.resetTime - Date.now()) / 1000 / 60)} minutes.`)
         setIsResending(false)
         return
       }
 
+      const countryCode = draft.country_code || '+91'
+      const phone = `${countryCode}${draft.mobile}`
+      console.log('Resending OTP to:', phone)
+      
       // Production: Real Supabase OTP resend
       const { error: resendError } = await supabase.auth.signInWithOtp({
         phone,
@@ -241,13 +213,6 @@ export function OtpStep() {
           />
         </div>
 
-        {process.env.NODE_ENV === 'development' && (
-          <div className="p-3 bg-yellow-100 border border-yellow-300 rounded-lg">
-            <p className="text-xs text-yellow-800 text-center">
-              <strong>Development Mode:</strong> Use OTP <code>123456</code> for any number.
-            </p>
-          </div>
-        )}
       </div>
     </WizardLayout>
   )

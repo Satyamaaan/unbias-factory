@@ -129,9 +129,19 @@ export function ContactStep() {
           <h3 className="font-semibold mb-3">Application Summary</h3>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
+              <span>Name:</span>
+              <span>{draft.full_name}</span>
+            </div>
+            <div className="flex justify-between">
               <span>Property:</span>
               <span>{draft.property_type} in {draft.city}</span>
             </div>
+            {draft.pincode && (
+              <div className="flex justify-between">
+                <span>Pincode:</span>
+                <span>{draft.pincode}</span>
+              </div>
+            )}
             <div className="flex justify-between">
               <span>Property Value:</span>
               <span>₹{draft.property_value_est?.toLocaleString('en-IN')}</span>
@@ -143,6 +153,40 @@ export function ContactStep() {
             <div className="flex justify-between">
               <span>Employment:</span>
               <span>{draft.employment_type?.replace('_', ' ')}</span>
+            </div>
+            {draft.employment_type === 'salaried' && (
+              <>
+                <div className="flex justify-between">
+                  <span>Monthly Salary:</span>
+                  <span>₹{draft.gross_salary?.toLocaleString('en-IN')}</span>
+                </div>
+                {draft.other_income && draft.other_income > 0 && (
+                  <div className="flex justify-between">
+                    <span>Other Income:</span>
+                    <span>₹{draft.other_income?.toLocaleString('en-IN')}/month</span>
+                  </div>
+                )}
+              </>
+            )}
+            {draft.employment_type?.includes('self_employed') && (
+              <>
+                <div className="flex justify-between">
+                  <span>Annual Profit:</span>
+                  <span>₹{draft.annual_net_profit?.toLocaleString('en-IN')}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>ITR Years:</span>
+                  <span>{draft.itr_years} years</span>
+                </div>
+              </>
+            )}
+            <div className="flex justify-between">
+              <span>Existing EMI:</span>
+              <span>₹{draft.existing_emi?.toLocaleString('en-IN')}/month</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Co-applicant:</span>
+              <span>{draft.has_coapplicant ? 'Yes' : 'No'}</span>
             </div>
           </div>
         </div>

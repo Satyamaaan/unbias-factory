@@ -6,16 +6,40 @@ interface CorsHeaders {
   'Access-Control-Allow-Origin': string
   'Access-Control-Allow-Headers': string
   'Access-Control-Allow-Methods': string
+  'Access-Control-Allow-Credentials': string
 }
 
-const corsHeaders: CorsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+const getCorsHeaders = (origin: string | null): CorsHeaders => {
+  const allowedOrigins = [
+    'https://unbias-factory.vercel.app',
+    'https://unbias-factory-git-dev-unbias-factory.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:3001'
+  ]
+  
+  const isAllowedOrigin = origin && allowedOrigins.includes(origin)
+  
+  return {
+    'Access-Control-Allow-Origin': isAllowedOrigin ? origin : allowedOrigins[0],
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+    'Access-Control-Allow-Credentials': 'true',
+  }
 }
 
 interface RequestBody {
   borrower_id: string
+}
+
+// Input validation utilities
+function isValidUUID(uuid: string): boolean {
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+  return uuidRegex.test(uuid)
+}
+
+function sanitizeBorrowerId(input: string): string {
+  // Remove any potential SQL injection attempts
+  return input.replace(/[^a-zA-Z0-9-]/g, '').substring(0, 36)
 }
 
 interface OfferResponse {
@@ -24,6 +48,46 @@ interface OfferResponse {
   count: number
   generated_at: string
   user_id: string
+}
+
+// Rate limiting configuration
+const RATE_LIMIT_WINDOW = 60 * 1000 // 1 minute
+const MAX_REQUESTS_PER_WINDOW = 10
+const RATE_LIMIT_HEADER = 'X-Rate-Limit'
+const RATE_LIMIT_REMAINING_HEADER = 'X-Rate-Limit-Remaining'
+const RATE_LIMIT_RESET_HEADER = 'X-Rate-Limit-Reset'
+
+// Simple in-memory rate limiting store (for edge functions)
+const rateLimitStore = new Map<string, { count: number; resetTime: number }>()
+
+/**
+ * Rate limiting function
+ * Returns true if request should be allowed, false if rate limited
+ */
+function checkRateLimit(identifier: string): { allowed: boolean; resetTime: number; remaining: number } {
+  const now = Date.now()
+  const windowStart = now - RATE_LIMIT_WINDOW
+  
+  let entry = rateLimitStore.get(identifier)
+  
+  // If no entry or window expired, create new entry
+  if (!entry || entry.resetTime <= now) {
+    entry = { count: 0, resetTime: now + RATE_LIMIT_WINDOW }
+    rateLimitStore.set(identifier, entry)
+  }
+  
+  const allowed = entry.count < MAX_REQUESTS_PER_WINDOW
+  const remaining = Math.max(0, MAX_REQUESTS_PER_WINDOW - entry.count)
+  
+  if (allowed) {
+    entry.count++
+  }
+  
+  return {
+    allowed,
+    resetTime: entry.resetTime,
+    remaining
+  }
 }
 
 // EMI calculation function
@@ -40,17 +104,55 @@ function calculateEMI(principal: number, annualRate: number, tenureYears: number
 }
 
 serve(async (req: Request) => {
+  const origin = req.headers.get('origin')
+  const corsHeaders = getCorsHeaders(origin)
+  
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
   }
 
   try {
+    // Rate limiting - use IP address as identifier
+    const clientIP = req.headers.get('x-forwarded-for') || 
+                    req.headers.get('x-real-ip') || 
+                    'unknown'
+    
+    const rateLimitResult = checkRateLimit(clientIP)
+    
+    if (!rateLimitResult.allowed) {
+      return new Response(
+        JSON.stringify({ 
+          error: 'Rate limit exceeded', 
+          message: 'Too many requests. Please try again later.' 
+        }),
+        { 
+          status: 429, 
+          headers: { 
+            ...corsHeaders, 
+            'Content-Type': 'application/json',
+            [RATE_LIMIT_HEADER]: `${MAX_REQUESTS_PER_WINDOW}`,
+            [RATE_LIMIT_REMAINING_HEADER]: '0',
+            [RATE_LIMIT_RESET_HEADER]: new Date(rateLimitResult.resetTime).toISOString()
+          } 
+        }
+      )
+    }
+
     // Get authorization header
     const authHeader = req.headers.get('authorization')
     if (!authHeader) {
       return new Response(
         JSON.stringify({ error: 'Authorization header required' }),
-        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        { 
+          status: 401, 
+          headers: { 
+            ...corsHeaders, 
+            'Content-Type': 'application/json',
+            [RATE_LIMIT_HEADER]: `${MAX_REQUESTS_PER_WINDOW}`,
+            [RATE_LIMIT_REMAINING_HEADER]: `${rateLimitResult.remaining - 1}`,
+            [RATE_LIMIT_RESET_HEADER]: new Date(rateLimitResult.resetTime).toISOString()
+          } 
+        }
       )
     }
 
@@ -73,19 +175,31 @@ serve(async (req: Request) => {
 
     const { borrower_id }: RequestBody = await req.json()
 
-    if (!borrower_id) {
+    // Input validation
+    if (!borrower_id || typeof borrower_id !== 'string') {
       return new Response(
-        JSON.stringify({ error: 'borrower_id is required' }),
+        JSON.stringify({ error: 'Valid borrower_id is required' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
 
+    // Validate UUID format to prevent injection
+    if (!isValidUUID(borrower_id)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid borrower_id format' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    // Sanitize input
+    const sanitizedBorrowerId = sanitizeBorrowerId(borrower_id)
+
     // CRITICAL SECURITY CHECK: Verify borrower belongs to authenticated user
     const { data: borrowerCheck, error: borrowerError } = await supabase
       .from('borrowers')
-      .select('id')
-      .eq('id', borrower_id)
-      .eq('id', user.id) // This ensures the borrower_id matches the authenticated user's ID
+      .select('id, user_id')
+      .eq('id', sanitizedBorrowerId)
+      .eq('user_id', user.id) // Correct: Check user_id column instead of id column
       .single()
 
     if (borrowerError || !borrowerCheck) {
@@ -96,7 +210,16 @@ serve(async (req: Request) => {
       })
       return new Response(
         JSON.stringify({ error: 'Unauthorized access to borrower data' }),
-        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        { 
+          status: 403, 
+          headers: { 
+            ...corsHeaders, 
+            'Content-Type': 'application/json',
+            [RATE_LIMIT_HEADER]: `${MAX_REQUESTS_PER_WINDOW}`,
+            [RATE_LIMIT_REMAINING_HEADER]: `${rateLimitResult.remaining - 1}`,
+            [RATE_LIMIT_RESET_HEADER]: new Date(rateLimitResult.resetTime).toISOString()
+          } 
+        }
       )
     }
 
@@ -104,18 +227,35 @@ serve(async (req: Request) => {
     const { data: borrower } = await supabase
       .from('borrowers')
       .select('loan_amount_required')
-      .eq('id', borrower_id)
+      .eq('id', sanitizedBorrowerId)
+      .eq('user_id', user.id) // Additional security check
       .single()
 
-    // Call our SQL function with the validated borrower_id
+    if (!borrower) {
+      return new Response(
+        JSON.stringify({ error: 'Borrower data not found or unauthorized access' }),
+        { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    // Call our SQL function with the validated and sanitized borrower_id
     const { data: offers, error } = await supabase
-      .rpc('match_products', { input_borrower_id: borrower_id })
+      .rpc('match_products', { input_borrower_id: sanitizedBorrowerId })
 
     if (error) {
       console.error('Database error:', error)
       return new Response(
         JSON.stringify({ error: 'Failed to fetch offers', details: error.message }),
-        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        { 
+          status: 500, 
+          headers: { 
+            ...corsHeaders, 
+            'Content-Type': 'application/json',
+            [RATE_LIMIT_HEADER]: `${MAX_REQUESTS_PER_WINDOW}`,
+            [RATE_LIMIT_REMAINING_HEADER]: `${rateLimitResult.remaining - 1}`,
+            [RATE_LIMIT_RESET_HEADER]: new Date(rateLimitResult.resetTime).toISOString()
+          } 
+        }
       )
     }
 
@@ -133,7 +273,7 @@ serve(async (req: Request) => {
     }) || [];
 
     const response: OfferResponse = {
-      borrower_id,
+      borrower_id: sanitizedBorrowerId,
       offers: enhancedOffers,
       count: enhancedOffers.length,
       generated_at: new Date().toISOString(),
@@ -144,14 +284,31 @@ serve(async (req: Request) => {
 
     return new Response(
       JSON.stringify(response),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      { 
+        headers: { 
+          ...corsHeaders, 
+          'Content-Type': 'application/json',
+          [RATE_LIMIT_HEADER]: `${MAX_REQUESTS_PER_WINDOW}`,
+          [RATE_LIMIT_REMAINING_HEADER]: `${rateLimitResult.remaining - 1}`,
+          [RATE_LIMIT_RESET_HEADER]: new Date(rateLimitResult.resetTime).toISOString()
+        } 
+      }
     )
 
   } catch (error) {
     console.error('Function error:', error)
     return new Response(
       JSON.stringify({ error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      { 
+        status: 500, 
+        headers: { 
+          ...corsHeaders, 
+          'Content-Type': 'application/json',
+          [RATE_LIMIT_HEADER]: `${MAX_REQUESTS_PER_WINDOW}`,
+          [RATE_LIMIT_REMAINING_HEADER]: '0',
+          [RATE_LIMIT_RESET_HEADER]: new Date(rateLimitResult.resetTime).toISOString()
+        } 
+      }
     )
   }
 })

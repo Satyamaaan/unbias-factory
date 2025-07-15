@@ -33,6 +33,19 @@ export function EmploymentStep() {
       if (!draft.annual_net_profit || draft.annual_net_profit < 120000) {
         newErrors.annual_net_profit = 'Minimum annual profit is ₹1,20,000'
       }
+      if (!draft.itr_years || draft.itr_years < 1) {
+        newErrors.itr_years = 'Please select years of ITR filing'
+      }
+    }
+
+    // Validate existing EMI
+    if (draft.existing_emi && draft.existing_emi < 0) {
+      newErrors.existing_emi = 'EMI amount cannot be negative'
+    }
+
+    // Validate co-applicant selection
+    if (draft.has_coapplicant === undefined) {
+      newErrors.has_coapplicant = 'Please select whether you have a co-applicant'
     }
 
     setErrors(newErrors)
@@ -48,11 +61,12 @@ export function EmploymentStep() {
 
   const isValidForNext = () => {
     if (!draft.employment_type) return false
+    if (draft.has_coapplicant === undefined) return false
     
     if (draft.employment_type === 'salaried') {
       return draft.gross_salary && draft.gross_salary >= 10000
     } else if (draft.employment_type?.includes('self_employed')) {
-      return draft.annual_net_profit && draft.annual_net_profit >= 120000
+      return draft.annual_net_profit && draft.annual_net_profit >= 120000 && draft.itr_years && draft.itr_years >= 1
     }
     
     return false
@@ -125,6 +139,22 @@ export function EmploymentStep() {
           </div>
         )}
 
+        {draft.employment_type === 'salaried' && (
+          <div>
+            <Label htmlFor="other_income">Other Monthly Income (₹) - Optional</Label>
+            <Input
+              id="other_income"
+              type="number"
+              placeholder="e.g., 15000"
+              value={draft.other_income || ''}
+              onChange={(e) => updateDraft({ other_income: Number(e.target.value) || 0 })}
+            />
+            <p className="text-xs text-gray-500 mt-1">
+              Include rental income, investments, or other regular income sources
+            </p>
+          </div>
+        )}
+
         {draft.employment_type?.includes('self_employed') && (
           <div>
             <Label htmlFor="annual_net_profit">Annual Net Profit (₹)</Label>
@@ -145,6 +175,111 @@ export function EmploymentStep() {
             )}
           </div>
         )}
+
+        {draft.employment_type?.includes('self_employed') && (
+          <div>
+            <Label htmlFor="itr_years">Years of ITR Filing</Label>
+            <Select 
+              value={draft.itr_years?.toString() || ''} 
+              onValueChange={(value) => updateDraft({ itr_years: parseInt(value) })}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select years" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="1">1 Year</SelectItem>
+                <SelectItem value="2">2 Years</SelectItem>
+                <SelectItem value="3">3 Years</SelectItem>
+                <SelectItem value="4">4 Years</SelectItem>
+                <SelectItem value="5">5+ Years</SelectItem>
+              </SelectContent>
+            </Select>
+            <p className="text-xs text-gray-500 mt-1">
+              How many years have you been filing income tax returns?
+            </p>
+            {errors.itr_years && (
+              <p className="text-sm text-red-600 mt-1">{errors.itr_years}</p>
+            )}
+          </div>
+        )}
+
+        {/* Financial Obligations */}
+        <div>
+          <Label htmlFor="existing_emi">Total Existing Monthly EMI (₹)</Label>
+          <Input
+            id="existing_emi"
+            type="number"
+            placeholder="e.g., 25000 (Enter 0 if none)"
+            value={draft.existing_emi || ''}
+            onChange={(e) => updateDraft({ existing_emi: Number(e.target.value) || 0 })}
+          />
+          {errors.existing_emi && (
+            <p className="text-sm text-red-600 mt-1">{errors.existing_emi}</p>
+          )}
+          <p className="text-xs text-gray-500 mt-1">
+            Include all existing loan EMIs (home, car, personal loans, credit cards)
+          </p>
+        </div>
+
+        {/* Co-applicant */}
+        <div>
+          <Label>Co-applicant</Label>
+          <div className="grid grid-cols-2 gap-3 mt-2">
+            <Card 
+              className={`cursor-pointer transition-colors ${
+                draft.has_coapplicant === true 
+                  ? 'border-blue-500 bg-blue-50' 
+                  : 'hover:bg-gray-50'
+              }`}
+              onClick={() => updateDraft({ has_coapplicant: true })}
+            >
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className={`w-4 h-4 rounded-full border-2 ${
+                    draft.has_coapplicant === true 
+                      ? 'border-blue-500 bg-blue-500' 
+                      : 'border-gray-300'
+                  }`}>
+                    {draft.has_coapplicant === true && (
+                      <div className="w-2 h-2 bg-white rounded-full m-0.5"></div>
+                    )}
+                  </div>
+                  <span className="font-medium">Yes</span>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card 
+              className={`cursor-pointer transition-colors ${
+                draft.has_coapplicant === false 
+                  ? 'border-blue-500 bg-blue-50' 
+                  : 'hover:bg-gray-50'
+              }`}
+              onClick={() => updateDraft({ has_coapplicant: false })}
+            >
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className={`w-4 h-4 rounded-full border-2 ${
+                    draft.has_coapplicant === false 
+                      ? 'border-blue-500 bg-blue-500' 
+                      : 'border-gray-300'
+                  }`}>
+                    {draft.has_coapplicant === false && (
+                      <div className="w-2 h-2 bg-white rounded-full m-0.5"></div>
+                    )}
+                  </div>
+                  <span className="font-medium">No</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <p className="text-xs text-gray-500 mt-1">
+            Will you be applying with a co-applicant (spouse, parent, etc.)?
+          </p>
+          {errors.has_coapplicant && (
+            <p className="text-sm text-red-600 mt-1">{errors.has_coapplicant}</p>
+          )}
+        </div>
       </div>
     </WizardLayout>
   )
