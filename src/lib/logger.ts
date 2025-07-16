@@ -43,21 +43,32 @@ class Logger {
     ERROR: 3
   }
 
-  private correlationId: string = this.generateCorrelationId()
+  private correlationId: string = ''
+  private isClient: boolean = false
 
   constructor(config?: Partial<LoggerConfig>) {
     if (config) {
       this.config = { ...this.config, ...config }
     }
     
-    // Load persisted logs on initialization
-    this.loadPersistedLogs()
-    
-    // Set up periodic cleanup
-    setInterval(() => this.cleanup(), 60000) // Every minute
+    // Only initialize client-side features if running in browser
+    if (typeof window !== 'undefined') {
+      this.isClient = true
+      this.correlationId = this.generateCorrelationId()
+      this.loadPersistedLogs()
+      
+      // Set up periodic cleanup
+      setInterval(() => this.cleanup(), 60000) // Every minute
+    } else {
+      // Server-side: use a static correlation ID
+      this.correlationId = 'server-' + Date.now()
+    }
   }
 
   private generateCorrelationId(): string {
+    if (typeof window === 'undefined') {
+      return 'server-' + Date.now()
+    }
     return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
   }
 
@@ -157,6 +168,8 @@ class Logger {
   }
 
   private persistLogs() {
+    if (typeof window === 'undefined') return
+    
     try {
       // Only persist recent logs to avoid localStorage bloat
       const recentLogs = this.logs.slice(-500)
@@ -167,6 +180,8 @@ class Logger {
   }
 
   private loadPersistedLogs() {
+    if (typeof window === 'undefined') return
+    
     try {
       const stored = localStorage.getItem('app_logs')
       if (stored) {

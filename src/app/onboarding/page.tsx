@@ -5,7 +5,8 @@ import { DebugPanel } from "@/components/DebugPanel"
 import { PropertyStep } from "./steps/PropertyStep"
 import { LoanStep } from "./steps/LoanStep"
 import { PersonalStep } from "./steps/PersonalStep"
-import { EmploymentStep } from "./steps/EmploymentStep"
+import { Employment1Step } from "./steps/Employment1Step"
+import { Employment2Step } from "./steps/Employment2Step"
 import { ContactStep } from "./steps/ContactStep"
 import { OtpStep } from "./steps/OtpStep"
 
@@ -21,7 +22,7 @@ export default function OnboardingPage() {
   }, [currentStep, draft])
 
   const renderStep = () => {
-    const validStep = Math.max(1, Math.min(6, currentStep))
+    const validStep = Math.max(1, Math.min(7, currentStep))
     
     console.log('Rendering step:', validStep)
     
@@ -37,12 +38,15 @@ export default function OnboardingPage() {
           console.log('Rendering PersonalStep')
           return <PersonalStep />
         case 4:
-          console.log('Rendering EmploymentStep')
-          return <EmploymentStep />
+          console.log('Rendering Employment1Step')
+          return <Employment1Step />
         case 5:
+          console.log('Rendering Employment2Step')
+          return <Employment2Step />
+        case 6:
           console.log('Rendering ContactStep')
           return <ContactStep />
-        case 6:
+        case 7:
           console.log('Rendering OtpStep')
           return <OtpStep />
         default:

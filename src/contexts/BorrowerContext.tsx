@@ -78,7 +78,9 @@ export function BorrowerProvider({ children }: { children: React.ReactNode }) {
 
   // Save to secure storage whenever draft changes
   useEffect(() => {
-    secureStorage.setDraft(draft)
+    secureStorage.setDraft(draft).catch(error => {
+      console.error('Failed to save to secure storage:', error)
+    })
   }, [draft])
 
   const updateDraft = (updates: Partial<BorrowerDraft>) => {

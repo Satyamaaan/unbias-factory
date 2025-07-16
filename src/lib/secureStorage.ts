@@ -4,7 +4,7 @@
  */
 
 const STORAGE_KEY = 'borrower_draft_secure'
-const ENCRYPTION_KEY = 'secure-storage-key' // In production, use environment variables
+const ENCRYPTION_KEY = 'secure-storage-key-32-char-long-key-here!' // 32 bytes for AES-256
 
 /**
  * Enhanced encryption/decryption utility using Web Crypto API
@@ -14,14 +14,17 @@ class SecureEncryption {
   private static readonly ALGORITHM = 'AES-GCM'
   private static readonly KEY_LENGTH = 256
   
-  // In production, this should be derived from user authentication or environment
+  // Generate a proper 256-bit key from the base key
   private static async getKey(): Promise<CryptoKey> {
     const encoder = new TextEncoder()
     const keyMaterial = encoder.encode(ENCRYPTION_KEY)
     
+    // Use SHA-256 to create a 256-bit key
+    const keyHash = await crypto.subtle.digest('SHA-256', keyMaterial)
+    
     return await crypto.subtle.importKey(
       'raw',
-      keyMaterial,
+      keyHash,
       { name: this.ALGORITHM },
       false,
       ['encrypt', 'decrypt']
@@ -85,12 +88,18 @@ class SecureEncryption {
 
 // Fallback encryption for environments without Web Crypto API
 class FallbackEncryption {
+  private static readonly KEY = ENCRYPTION_KEY.padEnd(32, '0')
+  
   static encrypt(data: any): string {
     try {
       const jsonString = JSON.stringify(data)
-      // Basic obfuscation - not actual encryption
-      const encoded = btoa(jsonString)
-      return encoded
+      let result = ''
+      for (let i = 0; i < jsonString.length; i++) {
+        result += String.fromCharCode(
+          jsonString.charCodeAt(i) ^ this.KEY.charCodeAt(i % this.KEY.length)
+        )
+      }
+      return btoa(result)
     } catch (error) {
       console.error('Fallback encryption error:', error)
       return ''
@@ -101,7 +110,13 @@ class FallbackEncryption {
     try {
       if (!encryptedData) return null
       const decoded = atob(encryptedData)
-      return JSON.parse(decoded)
+      let result = ''
+      for (let i = 0; i < decoded.length; i++) {
+        result += String.fromCharCode(
+          decoded.charCodeAt(i) ^ this.KEY.charCodeAt(i % this.KEY.length)
+        )
+      }
+      return JSON.parse(result)
     } catch (error) {
       console.error('Fallback decryption error:', error)
       return null
@@ -190,8 +205,55 @@ export class SecureStorage {
 
 // Export with specific key for borrower draft
 export const secureStorage = {
-  setDraft: (data: any) => SecureStorage.set(STORAGE_KEY, data),
-  getDraft: () => SecureStorage.get(STORAGE_KEY),
-  removeDraft: () => SecureStorage.remove(STORAGE_KEY),
-  clear: () => SecureStorage.clear()
+  setDraft: async (data: any): Promise<void> => {
+    try {
+      await SecureStorage.set(STORAGE_KEY, data)
+    } catch (error) {
+      console.error('Failed to save draft securely:', error)
+      // Fallback to plain storage if encryption fails
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.setItem(STORAGE_KEY + '_fallback', JSON.stringify(data))
+      }
+    }
+  },
+  
+  getDraft: async (): Promise<any> => {
+    try {
+      const data = await SecureStorage.get(STORAGE_KEY)
+      if (data) return data
+      
+      // Try fallback storage
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const fallback = localStorage.getItem(STORAGE_KEY + '_fallback')
+        if (fallback) return JSON.parse(fallback)
+      }
+      
+      return null
+    } catch (error) {
+      console.error('Failed to load draft securely:', error)
+      return null
+    }
+  },
+  
+  removeDraft: (): void => {
+    try {
+      SecureStorage.remove(STORAGE_KEY)
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.removeItem(STORAGE_KEY + '_fallback')
+      }
+    } catch (error) {
+      console.error('Failed to remove draft:', error)
+    }
+  },
+  
+  clear: (): void => {
+    try {
+      SecureStorage.clear()
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.removeItem(STORAGE_KEY + '_fallback')
+      }
+    } catch (error) {
+      console.error('Failed to clear secure data:', error)
+    }
+  }
 }

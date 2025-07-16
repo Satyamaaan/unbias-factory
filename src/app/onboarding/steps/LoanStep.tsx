@@ -48,36 +48,44 @@ export function LoanStep() {
       nextDisabled={!draft.loan_amount_required || draft.loan_amount_required < 100000}
     >
       <div className="space-y-4">
-        <div>
-          <Label htmlFor="loan_amount">Loan Amount (₹)</Label>
-          <Input
-            id="loan_amount"
-            type="number"
-            placeholder="e.g., 6000000"
-            value={draft.loan_amount_required || ''}
-            onChange={(e) => updateDraft({ loan_amount_required: Number(e.target.value) })}
-          />
-          {errors.loan_amount_required && (
-            <p className="text-sm text-red-600 mt-1">{errors.loan_amount_required}</p>
-          )}
-        </div>
-
-        {draft.loan_amount_required && (
-          <div className="p-3 bg-blue-50 rounded-lg">
-            <p className="text-sm text-blue-700">
-              Loan Amount: ₹{formatCurrency(draft.loan_amount_required)}
+        <div className="space-y-4">
+          <div>
+            <p className="text-base lg:text-lg font-medium text-foreground mb-3">
+              How much loan do you need?
             </p>
-            {ltvPercentage && (
-              <p className="text-sm text-blue-600">
-                LTV Ratio: {ltvPercentage}% 
-                <span className="ml-2 text-xs">
-                  ({Number(ltvPercentage) <= 80 ? '✅ Excellent' : 
-                    Number(ltvPercentage) <= 90 ? '⚠️ High' : '❌ Too High'})
-                </span>
-              </p>
+            <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md">
+              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground text-base lg:text-lg">₹</span>
+              <Input
+                id="loan_amount"
+                type="number"
+                placeholder="e.g., 6000000"
+                value={draft.loan_amount_required || ''}
+                onChange={(e) => updateDraft({ loan_amount_required: Number(e.target.value) })}
+                className="pl-8 py-2.5 text-base lg:text-lg border-2 border-input focus:border-primary rounded-lg w-full"
+              />
+            </div>
+            {errors.loan_amount_required && (
+              <p className="text-sm text-destructive mt-2">{errors.loan_amount_required}</p>
             )}
           </div>
-        )}
+
+          {draft.loan_amount_required && (
+            <div className="p-2.5 bg-accent rounded-lg border border-border">
+              <p className="text-sm text-accent-foreground">
+                Loan Amount: ₹{formatCurrency(draft.loan_amount_required)}
+              </p>
+              {ltvPercentage && (
+                <p className="text-sm text-accent-foreground">
+                  LTV Ratio: {ltvPercentage}% 
+                  <span className="ml-2 text-xs">
+                    ({Number(ltvPercentage) <= 80 ? '✅ Excellent' : 
+                      Number(ltvPercentage) <= 90 ? '⚠️ High' : '❌ Too High'})
+                  </span>
+                </p>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </WizardLayout>
   )

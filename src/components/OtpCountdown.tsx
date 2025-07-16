@@ -59,7 +59,7 @@ export function OtpCountdown({ initialTime, onResend, disabled = false }: OtpCou
           variant="link"
           onClick={handleResend}
           disabled={disabled}
-          className="p-0 h-auto text-blue-600 hover:text-blue-700"
+          className="p-0 h-auto text-blue-600 hover:text-blue-700 cursor-pointer"
         >
           Resend OTP
         </Button>
