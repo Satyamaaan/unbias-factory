@@ -1,6 +1,6 @@
 'use client'
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Home, FileText, User, Briefcase, Phone, Lock } from "lucide-react"
+import { ArrowLeft, Check } from "lucide-react"
 import { useBorrower } from "@/contexts/BorrowerContext"
 
 interface WizardLayoutProps {
@@ -16,13 +16,10 @@ interface WizardLayoutProps {
 }
 
 const STEPS = [
-  { number: 1, title: "Your property", icon: Home },
-  { number: 2, title: "Your project", icon: FileText },
-  { number: 3, title: "Your information", icon: User },
-  { number: 4, title: "Your professional situation", icon: Briefcase },
-  { number: 5, title: "Your income", icon: Briefcase },
-  { number: 6, title: "Your contact", icon: Phone },
-  { number: 7, title: "Verification", icon: Lock }
+  { number: 1, title: "Property Details", description: "Tell us about your property" },
+  { number: 2, title: "Loan Requirements", description: "Your loan amount and tenure" },
+  { number: 3, title: "Personal Information", description: "Basic details about you" },
+  { number: 4, title: "Income Details", description: "Your work and income information" }
 ]
 
 export function WizardLayout({
@@ -33,8 +30,7 @@ export function WizardLayout({
   onBack,
   nextLabel = "Next",
   backLabel = "Back",
-  nextDisabled = false,
-  showProgress = true
+  nextDisabled = false
 }: WizardLayoutProps) {
   const { draft } = useBorrower()
   const currentStep = draft.current_step || 1
@@ -45,8 +41,9 @@ export function WizardLayout({
       <div className="w-full max-w-[1100px] min-h-[750px] bg-card rounded-lg shadow-lg border border-border overflow-hidden">
         <div className="flex flex-col lg:flex-row min-h-[750px]">
           {/* Left Sidebar - Progress Navigation */}
-          <div className="w-full lg:w-[30%] bg-sidebar border-b lg:border-b-0 lg:border-r border-sidebar-border p-4 lg:p-6 flex flex-col">
-            <div className="mb-6 lg:mb-8">
+          {/* Desktop Vertical Stepper */}
+          <div className="hidden lg:flex lg:w-[30%] bg-sidebar border-r border-sidebar-border p-6 flex-col">
+            <div className="mb-8">
               <img
                 src="/logo.png"
                 alt="Unbias Lending"
@@ -54,41 +51,91 @@ export function WizardLayout({
               />
             </div>
 
-            <div className="space-y-1 flex-1">
-              <h2 className="text-sm font-medium text-muted-foreground mb-4">Introduction</h2>
-              <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 lg:space-y-2 lg:gap-0">
-                {STEPS.map((step) => {
-                  const Icon = step.icon
+            <div className="flex-1">
+              <div className="space-y-1">
+                {STEPS.map((step, index) => {
                   const isActive = step.number === currentStep
                   const isCompleted = step.number < currentStep
                   
                   return (
-                    <div
-                      key={step.number}
-                      className={`flex items-center gap-2 lg:gap-3 px-2 lg:px-3 py-2 rounded-lg text-xs lg:text-sm ${
-                        isActive
-                          ? 'bg-primary/10 border-l-4 border-primary'
-                          : 'text-muted-foreground'
-                      }`}
-                    >
-                      <div className={`w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center ${
-                        isCompleted
-                          ? 'bg-primary text-primary-foreground'
-                          : isActive
-                          ? 'bg-primary text-primary-foreground'
-                          : 'bg-muted'
-                      }`}>
-                        {isCompleted ? (
-                          <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-primary-foreground rounded-full"></div>
-                        ) : (
-                          <Icon className="w-2.5 h-2.5 lg:w-3 lg:h-3" />
-                        )}
+                    <div key={step.number} className="relative">
+                      <div className="flex items-start gap-3 py-6">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                          isCompleted
+                            ? 'bg-[#007848] text-white'
+                            : isActive
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-gray-200 text-gray-500'
+                        }`}>
+                          {isCompleted ? (
+                            <Check className="w-4 h-4" />
+                          ) : (
+                            <span className="text-sm font-medium">{step.number}</span>
+                          )}
+                        </div>
+                        
+                        <div className="flex-1 min-w-0">
+                          <h3 className={`text-sm font-medium ${
+                            isActive ? 'text-primary' : isCompleted ? 'text-gray-900' : 'text-gray-500'
+                          }`}>
+                            {step.title}
+                          </h3>
+                          <p className={`text-xs mt-0.5 ${
+                            isActive ? 'text-primary/80' : isCompleted ? 'text-gray-600' : 'text-gray-400'
+                          }`}>
+                            {step.description}
+                          </p>
+                        </div>
                       </div>
-                      <span className={`${
-                        isActive ? 'text-primary font-medium' : 'text-muted-foreground'
-                      } truncate`}>
-                        {step.title}
-                      </span>
+                      
+                      {index < STEPS.length - 1 && (
+                        <div className={`absolute left-4 top-16 w-px h-12 ${
+                          isCompleted ? 'bg-[#007848]' : 'bg-gray-200'
+                        }`} />
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Horizontal Stepper */}
+          <div className="lg:hidden w-full bg-sidebar border-b border-sidebar-border p-4">
+            <div className="flex justify-center">
+              <div className="flex items-center">
+                {STEPS.map((step, index) => {
+                  const isActive = step.number === currentStep
+                  const isCompleted = step.number < currentStep
+                  
+                  return (
+                    <div key={step.number} className="flex items-center">
+                      <div className="flex flex-col items-center">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                          isCompleted
+                            ? 'bg-[#007848] text-white'
+                            : isActive
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-gray-200 text-gray-500'
+                        }`}>
+                          {isCompleted ? (
+                            <Check className="w-4 h-4" />
+                          ) : (
+                            step.number
+                          )}
+                        </div>
+                        <span className={`text-xs text-center mt-1 max-w-16 ${
+                          isActive ? 'text-primary font-medium' : isCompleted ? 'text-gray-900' : 'text-gray-500'
+                        }`}>
+                          {step.title.split(' ')[0]}
+                        </span>
+                      </div>
+                      
+                      {index < STEPS.length - 1 && (
+                        <div className={`w-8 h-px mx-3 mb-[18px] ${
+                          isCompleted ? 'bg-[#007848]' : 'bg-gray-200'
+                        }`} />
+                      )}
                     </div>
                   )
                 })}

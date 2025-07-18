@@ -5,10 +5,10 @@ import { Input } from "@/components/ui/input"
 import { useBorrower } from "@/contexts/BorrowerContext"
 
 export function Employment2Step() {
-  const { draft, updateDraft, nextStep, prevStep } = useBorrower()
+  const { draft, updateDraft, prevStep } = useBorrower()
   const [errors, setErrors] = useState<Record<string, string>>({})
 
-  const handleNext = () => {
+  const handleShowOffers = () => {
     const newErrors: Record<string, string> = {}
     
     // Validate income based on employment type
@@ -30,7 +30,16 @@ export function Employment2Step() {
     setErrors(newErrors)
 
     if (Object.keys(newErrors).length === 0) {
-      nextStep()
+      // Mark income step complete and navigate to offers
+      const is4StepEnabled = process.env.NEXT_PUBLIC_ENABLE_4_STEP_FLOW === 'true'
+      const finalStep = is4StepEnabled ? 4 : 5
+      
+      updateDraft({ 
+        current_step: finalStep,
+        verified: true,
+        borrower_id: `dev_${Date.now()}` // Mock borrower_id for development
+      })
+      window.location.href = '/offers'
     }
   }
 
@@ -52,9 +61,10 @@ export function Employment2Step() {
     <WizardLayout
       title="Your income"
       description="Tell us about your income and financial obligations"
-      onNext={handleNext}
+      onNext={handleShowOffers}
       onBack={prevStep}
       nextDisabled={!isValidForNext()}
+      nextLabel="Show Offers"
     >
       <div className="space-y-4">
         <div className="space-y-4">

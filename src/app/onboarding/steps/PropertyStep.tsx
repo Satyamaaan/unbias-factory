@@ -113,18 +113,23 @@ export function PropertyStep() {
             <p className="text-base lg:text-lg font-medium text-foreground mb-3">
               What type of property do you want to buy?
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3">
               {PROPERTY_TYPES.map((type) => (
                 <button
                   key={type.value}
                   onClick={() => updateDraft({ property_type: type.value })}
-                  className={`p-3 rounded-lg border-2 text-left transition-all cursor-pointer ${
+                  className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer flex items-center space-x-4 ${
                     draft.property_type === type.value
                       ? 'border-primary bg-primary/10 text-primary'
                       : 'border-border hover:border-border/60 text-foreground'
                   }`}
                 >
-                  <span className="font-medium text-sm lg:text-base">{type.label}</span>
+                  <img
+                    src={`/icons/${type.value.replace('_', '-')}.svg`}
+                    alt={type.label}
+                    className="w-10 h-10 lg:w-12 lg:h-12 object-contain flex-shrink-0"
+                  />
+                  <span className="font-medium text-sm lg:text-base text-left">{type.label}</span>
                 </button>
               ))}
             </div>

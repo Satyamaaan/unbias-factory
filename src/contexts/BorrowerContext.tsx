@@ -34,6 +34,7 @@ export interface BorrowerDraft {
   // Journey & verification
   journey_stage?: string
   verified?: boolean
+  is_verified?: boolean
   user_id?: string
   borrower_id?: string
   
@@ -57,7 +58,8 @@ export function BorrowerProvider({ children }: { children: React.ReactNode }) {
     current_step: 1,
     journey_stage: 'exploring_options',
     existing_emi: 0,
-    other_income: 0
+    other_income: 0,
+    is_verified: false
   })
 
   // Load from secure storage on mount
@@ -92,7 +94,8 @@ export function BorrowerProvider({ children }: { children: React.ReactNode }) {
       current_step: 1,
       journey_stage: 'exploring_options',
       existing_emi: 0,
-      other_income: 0
+      other_income: 0,
+      is_verified: false
     })
     secureStorage.removeDraft()
   }
