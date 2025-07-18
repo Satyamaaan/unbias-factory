@@ -5,9 +5,7 @@ import { DebugPanel } from "@/components/DebugPanel"
 import { PropertyStep } from "./steps/PropertyStep"
 import { LoanStep } from "./steps/LoanStep"
 import { PersonalStep } from "./steps/PersonalStep"
-import { EmploymentStep } from "./steps/EmploymentStep"
-import { ContactStep } from "./steps/ContactStep"
-import { OtpStep } from "./steps/OtpStep"
+import { Employment2Step } from "./steps/Employment2Step"
 
 export default function OnboardingPage() {
   const { draft, clearDraft } = useBorrower()
@@ -21,7 +19,7 @@ export default function OnboardingPage() {
   }, [currentStep, draft])
 
   const renderStep = () => {
-    const validStep = Math.max(1, Math.min(6, currentStep))
+    const validStep = Math.max(1, Math.min(4, currentStep))
     
     console.log('Rendering step:', validStep)
     
@@ -37,14 +35,8 @@ export default function OnboardingPage() {
           console.log('Rendering PersonalStep')
           return <PersonalStep />
         case 4:
-          console.log('Rendering EmploymentStep')
-          return <EmploymentStep />
-        case 5:
-          console.log('Rendering ContactStep')
-          return <ContactStep />
-        case 6:
-          console.log('Rendering OtpStep')
-          return <OtpStep />
+          console.log('Rendering Employment2Step')
+          return <Employment2Step />
         default:
           console.log('Fallback to PropertyStep')
           return <PropertyStep />

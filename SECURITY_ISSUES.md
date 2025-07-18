@@ -1,0 +1,20 @@
+### Issue #8: OTP Verification Stuck Issue
+- **Status**: ✅ RESOLVED
+- **Priority**: HIGH
+- **File**: `/src/app/onboarding/steps/OtpStep.tsx`
+- **Impact**: Users cannot complete OTP verification, blocking onboarding flow
+- **Description**: OTP verification gets stuck on "Verifying..." state after clicking verify
+- **Symptoms**: 
+  - Console shows encryption errors
+  - No error messages displayed to user
+  - Loading state never resolves
+  - No redirect to next step
+- **Fix Applied**: 
+  - Added comprehensive error handling with detailed logging
+  - Implemented multiple timeout layers (30s main, 15s network)
+  - Added retry prevention with 3-second cooldown between attempts
+  - Enhanced redirect mechanism with fallback to window.location
+  - Added retry counter and attempt tracking
+  - Improved phone number validation before verification
+  - Added detailed debugging logs for troubleshooting
+  - Disabled resend button during verification to prevent conflicts

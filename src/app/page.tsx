@@ -63,7 +63,13 @@ export default function Home() {
     <main className="min-h-screen p-8 max-w-6xl mx-auto">
       <div className="text-center space-y-6">
         <div>
-          <h1 className="text-4xl font-bold mb-2">Unbias Lending</h1>
+          <div className="flex justify-center mb-4">
+            <img
+              src="/logo.png"
+              alt="Unbias Lending"
+              className="h-20 w-auto"
+            />
+          </div>
           <p className="text-muted-foreground text-lg">Digital home loan marketplace</p>
           <p className="text-sm text-gray-600 mt-2">
             Find the best home loan offers with transparent, unbiased comparison

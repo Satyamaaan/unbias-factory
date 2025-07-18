@@ -1,29 +1,40 @@
 'use client'
 import React, { createContext, useContext, useState, useEffect } from 'react'
+import { secureStorage } from '@/lib/secureStorage'
 
 export interface BorrowerDraft {
+  // Personal details
+  full_name?: string
+  dob?: string
+  
   // Property details
   property_type?: string
   property_value_est?: number
   city?: string
+  pincode?: string
   
   // Loan details
   loan_amount_required?: number
-  
-  // Personal details
-  dob?: string
   
   // Employment
   employment_type?: string
   gross_salary?: number
   annual_net_profit?: number
+  other_income?: number
+  itr_years?: number
+  
+  // Financial obligations
+  existing_emi?: number
+  has_coapplicant?: boolean
   
   // Contact
   mobile?: string
   country_code?: string
 
-  // Verification & User Data
+  // Journey & verification
+  journey_stage?: string
   verified?: boolean
+  is_verified?: boolean
   user_id?: string
   borrower_id?: string
   
@@ -43,23 +54,35 @@ interface BorrowerContextType {
 const BorrowerContext = createContext<BorrowerContextType | undefined>(undefined)
 
 export function BorrowerProvider({ children }: { children: React.ReactNode }) {
-  const [draft, setDraft] = useState<BorrowerDraft>({ current_step: 1 })
+  const [draft, setDraft] = useState<BorrowerDraft>({ 
+    current_step: 1,
+    journey_stage: 'exploring_options',
+    existing_emi: 0,
+    other_income: 0,
+    is_verified: false
+  })
 
-  // Load from localStorage on mount
+  // Load from secure storage on mount
   useEffect(() => {
-    const saved = localStorage.getItem('borrower_draft')
-    if (saved) {
+    const loadDraft = async () => {
       try {
-        setDraft(JSON.parse(saved))
+        const saved = await secureStorage.getDraft()
+        if (saved) {
+          setDraft(prev => ({ ...prev, ...saved }))
+        }
       } catch (error) {
-        console.error('Failed to load draft from localStorage:', error)
+        console.error('Failed to load draft from secure storage:', error)
       }
     }
+    
+    loadDraft()
   }, [])
 
-  // Save to localStorage whenever draft changes
+  // Save to secure storage whenever draft changes
   useEffect(() => {
-    localStorage.setItem('borrower_draft', JSON.stringify(draft))
+    secureStorage.setDraft(draft).catch(error => {
+      console.error('Failed to save to secure storage:', error)
+    })
   }, [draft])
 
   const updateDraft = (updates: Partial<BorrowerDraft>) => {
@@ -67,8 +90,14 @@ export function BorrowerProvider({ children }: { children: React.ReactNode }) {
   }
 
   const clearDraft = () => {
-    setDraft({ current_step: 1 })
-    localStorage.removeItem('borrower_draft')
+    setDraft({ 
+      current_step: 1,
+      journey_stage: 'exploring_options',
+      existing_emi: 0,
+      other_income: 0,
+      is_verified: false
+    })
+    secureStorage.removeDraft()
   }
 
   const goToStep = (step: number) => {
